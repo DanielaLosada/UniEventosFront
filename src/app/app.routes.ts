@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { CrearEventoComponent } from './componentes/crear-evento/crear-evento.component';
 
 
 
