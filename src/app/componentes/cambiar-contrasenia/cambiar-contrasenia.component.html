@@ -1,24 +1,43 @@
-<form [formGroup]="cambiarContraseniaForm" (ngSubmit)="cambiarContrasenia()" novalidate="">
+<div class="container">
+  <div class="card">
+    <div class="card-header p-4">
+      <h5 class="mb-0">
+        <i class="fa-solid fa-user-plus me-3"></i>Restablecer contraseña
+      </h5>
+    </div>
+    <div class="card-body p-4">
+      <form [formGroup]="cambiarContraseniaForm" (ngSubmit)="cambiarContrasenia()" novalidate="">
 
-    <p>Su nueva contraseña debe contener un mínimo de 8 caracteres, de los cuales al menos 1 debe ser numérico, 1 letra mayúscula y 1 letra minúscula.
-    </p>
-    <h2>Digite el código enviado a su correo electrónico:</h2>
-    <div>
-      <label>Codigo: </label>
-      <input type="" formControlName="codigo" />
+        <p>Su nueva contraseña debe contener un mínimo de 8 caracteres, de los cuales al menos 1 debe ser numérico, 1 letra mayúscula y 1 letra minúscula.
+        </p>
+        <p>Digite el código enviado a su correo electrónico:</p>
+
+        <div class="col-6">
+          <label>Codigo: </label>
+          <input type="text" class="form-control" formControlName="codigo" />
+        </div>
+
+        <p>La nueva contraseña</p>
+
+        <div class="col-6">
+            <label></label>
+            <input type="password" class="form-control" formControlName="password" />
+        </div>
+
+        <p>Confirma tu nueva contraseña</p>
+
+        <div class="col-6">
+          <label>Repetir contraseña: </label>
+          <input type="password" class="form-control" formControlName="confirmaPassword" />
+        </div>
+
+        @if (cambiarContraseniaForm.hasError('passwordsMismatch')) {
+          <p>Las contraseñas no coinciden</p>
+          }
+          <div class="col-14 text-center">
+            <button type="submit"  class="btn btn-primary" [disabled]="cambiarContraseniaForm.invalid">Guardar</button>
+          </div>
+      </form>
     </div>
-    <h2>La nueva contraseña</h2>
-    <div>
-        <label></label>
-        <input type="password" formControlName="password" />
-      </div>
-    <h2>Confirma tu nueva contraseña</h2>
-    <div>
-      <label>Repetir contraseña: </label>
-      <input type="password" formControlName="confirmaPassword" />
-    </div>
-    @if (cambiarContraseniaForm.hasError('passwordsMismatch')) {
-      <p>Las contraseñas no coinciden</p>
-      }
-    <button type="submit" [disabled]="cambiarContraseniaForm.invalid">Guardar</button>
-  </form>
+  </div>
+ </div>
