@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import {Router} from '@angular/router'
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, } from '@angular/forms';
 
 @Component({
@@ -15,7 +16,7 @@ export class OlvideContraseniaComponent {
 
   olvideContraseniaForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder  ,private router: Router) {
     this.crearFormulario();
   }
 
@@ -30,6 +31,8 @@ export class OlvideContraseniaComponent {
     if (this.olvideContraseniaForm.valid) {
       console.log(this.olvideContraseniaForm.value);
     }
+
+    this.router.navigate(['/cambiar-contrasenia']);
   }
 
 }

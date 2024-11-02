@@ -1,12 +1,33 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()" novalidate="">
-    <div>
-      <label>Email: </label>
-      <input type="text" formControlName="email" />
+<div class="container">
+  <div class="card">
+    <div class="card-header p-4">
+      <h5 class="mb-0">
+        <i class="fa-solid fa-user-plus me-3"></i>Inicio Sesion
+      </h5>
     </div>
-    <div>
-      <label>Contraseña: </label>
-      <input type="password" formControlName="contrasenia" />
-    </div>
+    <div class="card-body p-4">
+      <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate="">
 
-    <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
-</form>
+        <div class="col-6">
+          <label>Email: </label>
+          <input type="text" class="form-control" formControlName="email" />
+        </div>
+
+        <div class="col-6">
+          <label>Contraseña: </label>
+          <input type="password" class="form-control" formControlName="contrasenia" />
+        </div>
+
+        <div class="col-14 text-center">
+          <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Ingresar
+          </button>
+        </div>
+
+        <div class="col-14 text-center mt-2">
+          <a routerLink="/olvide-contrasenia" class="text-decoration-none">¿Olvidaste tu contraseña?</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+ </div>
