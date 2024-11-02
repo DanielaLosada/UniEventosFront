@@ -6,6 +6,8 @@ import { CrearEventoComponent } from './componentes/crear-evento/crear-evento.co
 import { CambiarContraseniaComponent } from './componentes/cambiar-contrasenia/cambiar-contrasenia.component';
 import { OlvideContraseniaComponent } from './componentes/olvide-contrasenia/olvide-contrasenia.component';
 import { EditarEventoComponent } from './componentes/editar-evento/editar-evento.component';
+import { GestionEventosComponent } from './componentes/gestion-eventos/gestion-eventos.component';
+import { DetalleEventoComponent } from './componentes/detalle-evento/detalle-evento.component';
 
 export const routes: Routes = [
    { path: '', component: InicioComponent },
@@ -14,6 +16,8 @@ export const routes: Routes = [
    {path: 'crear-evento', component: CrearEventoComponent},
    {path: 'cambiar-contrasenia', component: CambiarContraseniaComponent},
    {path: 'olvide-contrasenia', component: OlvideContraseniaComponent},
-   {path: 'editar-evento', component: EditarEventoComponent},
+   { path: 'editar-evento/:id', component: EditarEventoComponent },
+   { path: 'gestion-eventos', component: GestionEventosComponent },
+   { path: 'detalle-evento/:id', component: DetalleEventoComponent },
    { path: "**", pathMatch: "full", redirectTo: "" }
 ];

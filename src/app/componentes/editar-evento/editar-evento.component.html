@@ -1,62 +1,85 @@
-<form [formGroup]="editarEventoForm" (ngSubmit)="crearEvento()" novalidate>
-    <h2>Editar evento</h2>
-    <div>
-        <label>Nombre: </label>
-        <input type="text" formControlName="nombre" />
+<div class="container mt-4 text-white bg-dark p-4 rounded">
+    <div class="text-center border-bottom border-secondary pb-3 mb-4">
+      <h2 class="text-uppercase">{{ evento?.nombre }} - {{ evento?.ciudad }}</h2>
     </div>
 
-    <div>
-        <label>Descripción: </label>
-        <textarea formControlName="descripcion"></textarea>   
-    </div>
-
-    <div>
-        <label>Tipo: </label>
-        <select formControlName="tipo">
-            <option value="">Seleccione un tipo</option>
-            <ng-container *ngFor="let item of tiposDeEvento">
-                <option [value]="item">{{item}}</option>
-            </ng-container>
-        </select>
-    </div>
-
-    <div>
-        <label>Dirección: </label>
-        <input type="text" formControlName="direccion" />
-    </div>
-
-    <div>
-        <label>Ciudad: </label>
-        <input type="text" formControlName="ciudad" />
-    </div>
-
-    <!-- Localidades dinámicas -->
-    <div formArrayName="localidades">
-        <h3>Localidades</h3>
-        <button type="button" (click)="agregarLocalidad()">Añadir Localidad</button>
-        
-        <div *ngFor="let localidad of localidades.controls; let i = index" [formGroupName]="i">
-            <label>Nombre de la Localidad:</label>
-            <input type="text" formControlName="nombreLocalidad" />
+    <div class="card">
+      <div class="card-header p-4">
+        <h5 class="mb-0">
+          <i class="fa-solid fa-user-plus me-3"></i>Editar evento
+        </h5>
+      </div>
+      <div class="card-body p-4">
+        <form [formGroup]="editarEventoForm" (ngSubmit)="crearEvento()" novalidate>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label>Nombre: </label>
+                    <input type="text" class="form-control" formControlName="nombre" [value]="evento?.nombre"/>
+                </div>
             
-            <label>Precio:</label>
-            <input type="number" formControlName="precio" />
+                <div class="col-6">
+                    <label>Descripción: </label>
+                    <textarea formControlName="descripcion" class="form-control">{{ evento?.descripcion }}</textarea>
+                </div>
+            </div>
 
-            <button type="button" (click)="eliminarLocalidad(i)">Eliminar</button>
-        </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="form-label">Tipo: </label>
+                    <select formControlName="tipo" class="form-select">
+                        <option value="">Seleccione un tipo</option>
+                        <option *ngFor="let item of tiposDeEvento" [value]="item" [selected]="item === evento?.tipo">{{ item }}</option>
+                    </select>
+                </div>
+            
+                <div class="col-6">
+                    <label>Dirección: </label>
+                    <input type="text" class="form-control" formControlName="direccion" [value]="evento?.direccion"/>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label>Ciudad: </label>
+                    <input type="text" class="form-control" formControlName="ciudad" [value]="evento?.ciudad"/>
+                </div>
+            </div>
+
+            <!-- Localidades dinámicas -->
+            <div class="col-12 mb-3" formArrayName="localidades">
+                <label>Localidades</label>
+                <div>
+                    <button type="button" class="btn btn-primary" (click)="agregarLocalidad()">Añadir Localidad</button>
+                </div>
+
+                <div *ngFor="let localidad of localidades.controls; let i = index" [formGroupName]="i">
+                    <label>Nombre de la Localidad:</label>
+                    <input type="text" class="form-control"  formControlName="nombreLocalidad" />
+                    
+                    <label>Precio:</label>
+                    <input type="number" class="form-control" formControlName="precio" />
+                    <div>
+                        <button type="button" class="btn btn-danger mt-2" (click)="eliminarLocalidad(i)">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label>Imagen evento: </label>
+                    <input type="file" class="form-control" (change)="onFileChange($event, 'portada')" />
+                </div>
+            
+                <div class="col-6">
+                    <label>Imagen localidades: </label>
+                    <input type="file" class="form-control" (change)="onFileChange($event, 'localidades')" />
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            </div>
+        </form>
+      </div>
     </div>
-
-    <div>
-        <label>Imagen evento: </label>
-        <input type="file" (change)="onFileChange($event, 'portada')" />
-    </div>
-
-    <div>
-        <label>Imagen localidades: </label>
-        <input type="file" (change)="onFileChange($event, 'localidades')" />
-    </div>
-
-    <button type="submit">Editar evento</button>
-    <button type="reset">Eliminar evento</button>
-</form>
-
+</div>

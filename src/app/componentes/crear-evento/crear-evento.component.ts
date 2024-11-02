@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { CommonModule } from '@angular/common'; // Importa CommonModule
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-evento',
@@ -66,6 +67,7 @@ export class CrearEventoComponent {
 
   public crearEvento() {
     console.log(this.crearEventoForm.value);
+    Swal.fire("Exito!", "Se ha creado un nuevo evento.", "success");
   }
 }
 
