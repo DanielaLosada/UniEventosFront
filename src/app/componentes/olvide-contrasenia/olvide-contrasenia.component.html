@@ -1,0 +1,13 @@
+<form [formGroup]="olvideContraseniaForm" (ngSubmit)="olvideContrasenia()" novalidate="">
+
+    <p>Por favor, introduce tu email para recibir un código de un solo uso para restablecer la contraseña
+    </p>
+
+    <div>
+      <label>Email: </label>
+      <input type="email" formControlName="email" />
+    </div>
+
+    <button type="submit" [disabled]="olvideContraseniaForm.invalid">Recuperar contraseña</button>
+</form>
+

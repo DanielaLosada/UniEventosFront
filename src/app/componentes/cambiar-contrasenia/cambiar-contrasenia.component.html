@@ -1,0 +1,24 @@
+<form [formGroup]="cambiarContraseniaForm" (ngSubmit)="cambiarContrasenia()" novalidate="">
+
+    <p>Su nueva contraseña debe contener un mínimo de 8 caracteres, de los cuales al menos 1 debe ser numérico, 1 letra mayúscula y 1 letra minúscula.
+    </p>
+    <h2>Digite el código enviado a su correo electrónico:</h2>
+    <div>
+      <label>Codigo: </label>
+      <input type="" formControlName="codigo" />
+    </div>
+    <h2>La nueva contraseña</h2>
+    <div>
+        <label></label>
+        <input type="password" formControlName="password" />
+      </div>
+    <h2>Confirma tu nueva contraseña</h2>
+    <div>
+      <label>Repetir contraseña: </label>
+      <input type="password" formControlName="confirmaPassword" />
+    </div>
+    @if (cambiarContraseniaForm.hasError('passwordsMismatch')) {
+      <p>Las contraseñas no coinciden</p>
+      }
+    <button type="submit" [disabled]="cambiarContraseniaForm.invalid">Guardar</button>
+  </form>

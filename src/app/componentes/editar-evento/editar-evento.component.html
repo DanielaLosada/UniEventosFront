@@ -1,4 +1,5 @@
-<form [formGroup]="crearEventoForm" (ngSubmit)="crearEvento()" novalidate>
+<form [formGroup]="editarEventoForm" (ngSubmit)="crearEvento()" novalidate>
+    <h2>Editar evento</h2>
     <div>
         <label>Nombre: </label>
         <input type="text" formControlName="nombre" />
@@ -55,5 +56,7 @@
         <input type="file" (change)="onFileChange($event, 'localidades')" />
     </div>
 
-    <button type="submit">Crear evento</button>
+    <button type="submit">Editar evento</button>
+    <button type="reset">Eliminar evento</button>
 </form>
+

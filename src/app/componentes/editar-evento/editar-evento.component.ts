@@ -4,15 +4,15 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormArray } fr
 import { CommonModule } from '@angular/common'; // Importa CommonModule
 
 @Component({
-  selector: 'app-crear-evento',
+  selector: 'app-editar-evento',
   standalone: true,
-  imports: [RouterModule, ReactiveFormsModule, CommonModule], // Agrega CommonModule aquí
-  templateUrl: './crear-evento.component.html',
-  styleUrls: ['./crear-evento.component.css']
+  imports: [RouterModule, ReactiveFormsModule, CommonModule],
+  templateUrl: './editar-evento.component.html',
+  styleUrl: './editar-evento.component.css'
 })
-export class CrearEventoComponent {
+export class EditarEventoComponent {
 
-  crearEventoForm!: FormGroup;
+  editarEventoForm!: FormGroup;
   tiposDeEvento: string[];
 
   constructor(private formBuilder: FormBuilder) {
@@ -21,7 +21,7 @@ export class CrearEventoComponent {
   }
 
   private crearFormulario() {
-    this.crearEventoForm = this.formBuilder.group({
+    this.editarEventoForm = this.formBuilder.group({
       nombre: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
       tipo: ['', [Validators.required]],
@@ -34,7 +34,7 @@ export class CrearEventoComponent {
   }
 
   get localidades(): FormArray {
-    return this.crearEventoForm.get('localidades') as FormArray;
+    return this.editarEventoForm.get('localidades') as FormArray;
   }
 
   agregarLocalidad() {
@@ -55,17 +55,18 @@ export class CrearEventoComponent {
 
       switch (tipo) {
         case 'localidades':
-          this.crearEventoForm.get('imagenLocalidades')?.setValue(files[0]);
+          this.editarEventoForm.get('imagenLocalidades')?.setValue(files[0]);
           break;
         case 'portada':
-          this.crearEventoForm.get('imagenPortada')?.setValue(files[0]);
+          this.editarEventoForm.get('imagenPortada')?.setValue(files[0]);
           break;
       }
     }
   }
 
   public crearEvento() {
-    console.log(this.crearEventoForm.value);
+    console.log(this.editarEventoForm.value);
   }
 }
+
 

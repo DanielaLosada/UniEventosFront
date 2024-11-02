@@ -1,1 +1,12 @@
-<p>login works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="login()" novalidate="">
+    <div>
+      <label>Email: </label>
+      <input type="text" formControlName="email" />
+    </div>
+    <div>
+      <label>Contraseña: </label>
+      <input type="password" formControlName="contrasenia" />
+    </div>
+
+    <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+</form>
