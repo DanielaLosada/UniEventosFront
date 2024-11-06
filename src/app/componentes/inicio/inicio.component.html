@@ -1,1 +1,14 @@
-<p>inicio works!</p>
+<div *ngIf="eventos && eventos.length > 0; else noEventos">
+    <div *ngFor="let evento of eventos" class="evento-card">
+      <img [src]="evento.urlImagenPoster" alt="Poster de {{ evento.nombre }}" class="evento-imagen">
+      <h3>{{ evento.nombre }}</h3>
+      <p>Fecha: {{ evento.fecha }}</p>
+      <p>Dirección: {{ evento.direccion }}</p>
+      <p>Tipo de evento: {{ evento.tipoEvento }}</p>
+    </div>
+  </div>
+  
+  <ng-template #noEventos>
+    <p>No hay eventos disponibles en este momento.</p>
+  </ng-template>
+  
