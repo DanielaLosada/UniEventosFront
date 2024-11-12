@@ -1,0 +1,42 @@
+.header-custom {
+    background-color: transparent;
+    color: white;
+    width: 100%; 
+    margin: 0; 
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.nav-link {
+    color: white !important; 
+}
+
+.custom-font {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem; /* Ajusta el tamaño de la fuente */
+  color: white;
+}
+  
+.btn-outline {
+    border-color: transparent;
+    color: white;
+}
+
+.btn-outline:hover {
+  
+  background-color:#ff0000; /* Cambia el color de fondo al pasar el mouse */
+  color:white; /* Cambia el color del texto al pasar el mouse */
+   
+  border-color:#ff0000; /* Cambia el color del borde al pasar el mouse (opcional) */
+}
+  
+.icono {
+    width: 253px; 
+    height: 149px;
+}
+  

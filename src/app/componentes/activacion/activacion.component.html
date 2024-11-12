@@ -1,0 +1,28 @@
+<div class="container d-flex align-items-center justify-content-center" style="margin-top: -250px; height: 100vh;">
+    <div class="card text-white" style="background-color: transparent; max-width: 1000px; padding: 2rem;">
+      <div class="card-body">
+        <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <h4 class="text-center" style="font-size: 2rem; margin-bottom: 2rem; font-family: 'ADLaM Display', system-ui; color: #ff0000;">
+          ¡Hola! Bienvenido a UNIEVENTOS 
+        </h4>
+        <h5 class="text-center" style="font-size: 1.5rem; margin-bottom: 3rem;">
+            Como es la primera vez que inicias sesión en UniEventos digita el código enviado a tu correo electrónico para activar tu cuenta
+        </h5>
+        <form [formGroup]="activacionForm" (ngSubmit)="activarCuenta()" novalidate="">
+  
+            <div class="mb-5" style="max-width: 200px; margin: auto;">
+                <input type="text" class="form-control border" formControlName="codigo" 
+                       style="font-size: 1.1rem; padding: 0.75rem; background-color: #ffffff; border: 2px solid #ff0000 !important; color: #000;" />
+            </div>
+      
+          <div class="text-center mt-2" style="max-width: 250px; margin: auto;">
+            <button type="submit" class="btn btn" [disabled]="activacionForm.invalid" style="font-size: 1.2rem; color:#ffffff; padding: 0.4rem; width: 60%;">
+              Activar
+            </button>
+          </div>
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  

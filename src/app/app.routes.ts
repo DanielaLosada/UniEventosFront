@@ -8,9 +8,11 @@ import { OlvideContraseniaComponent } from './componentes/olvide-contrasenia/olv
 import { EditarEventoComponent } from './componentes/editar-evento/editar-evento.component';
 import { GestionEventosComponent } from './componentes/gestion-eventos/gestion-eventos.component';
 import { DetalleEventoComponent } from './componentes/detalle-evento/detalle-evento.component';
+import { ActivacionComponent } from './componentes/activacion/activacion.component';
+import { FiltroEventosComponent } from './componentes/filtro-eventos/filtro-eventos.component';
 
 export const routes: Routes = [
-   { path: '', component: InicioComponent },
+   { path: 'inicio', component: InicioComponent },
    { path: 'login', component: LoginComponent },
    { path: 'registro', component: RegistroComponent },
    {path: 'crear-evento', component: CrearEventoComponent},
@@ -19,5 +21,7 @@ export const routes: Routes = [
    { path: 'editar-evento/:id', component: EditarEventoComponent },
    { path: 'gestion-eventos', component: GestionEventosComponent },
    { path: 'detalle-evento/:id', component: DetalleEventoComponent },
+   { path: 'activar-cuenta', component: ActivacionComponent },
+   {path:'filtrar-eventos' , component: FiltroEventosComponent},
    { path: "**", pathMatch: "full", redirectTo: "" }
 ];

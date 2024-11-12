@@ -1,25 +1,29 @@
-<div class="container">
-  <div class="card">
-    <div class="card-header p-4">
-      <h5 class="mb-0">
-        <i class="fa-solid fa-user-plus me-3"></i>Restablecer contraseña
+<div class="container d-flex align-items-center justify-content-center" style="margin-top: -250px; height: 100vh;">
+  <div class="card text-white" style="background-color: transparent; max-width: 1000px; padding: 2rem;">
+    <div class="card-body">
+      <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+      <h4 class="text-center" style="font-size: 2rem; margin-bottom: 2rem; font-family: 'ADLaM Display', system-ui; color: #ff0000;">
+        Recuperar contraseña
+      </h4>
+      <h5 class="text-center" style="font-size: 1.5rem; margin-bottom: 3rem;">
+        Por favor, introduce tu email para recibir un código de un solo uso para restablecer la contraseña
       </h5>
-    </div>
-    <div class="card-body p-4">
       <form [formGroup]="olvideContraseniaForm" (ngSubmit)="olvideContrasenia()" novalidate="">
-        <p>Por favor, introduce tu email para recibir un código de un solo uso para restablecer la contraseña
-        </p>
 
-        <div class="col-6">
-          <label>Email: </label>
-          <input type="email" class="form-control" formControlName="email" />
+        <div class="mb-5" style="max-width: 400px; margin: auto;">
+          <label style="font-size: 1.2rem;">Email:</label>
+          <input type="email" class="form-control border" formControlName="email" 
+                 style="font-size: 1.1rem; padding: 0.75rem; background-color: #ffffff; border: 2px solid #ff0000 !important; color: #000;" />
         </div>
     
-        <div class="col-14 text-center">
-          <button type="submit" class="btn btn-primary" [disabled]="olvideContraseniaForm.invalid" >Recuperar contraseña</button>
+        <div class="text-center mt-2" style="max-width: 400px; margin: auto;">
+          <button type="submit" class="btn btn" [disabled]="olvideContraseniaForm.invalid" style="font-size: 1.2rem; color:#ffffff; padding: 0.4rem; width: 60%;">
+            Recuperar contraseña
+          </button>
         </div>
-    </form>
-    
+
+      </form>
     </div>
   </div>
- </div>
+</div>
+

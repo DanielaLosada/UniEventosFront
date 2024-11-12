@@ -1,43 +1,45 @@
-<div class="container">
-  <div class="card">
-    <div class="card-header p-4">
-      <h5 class="mb-0">
-        <i class="fa-solid fa-user-plus me-3"></i>Restablecer contraseña
+<div class="container d-flex align-items-center justify-content-center" style="margin-top: -150px; height: 100vh;">
+  <div class="card text-white" style="background-color: transparent; max-width: 1000px; padding: 2rem;">
+    <div class="card-body">
+      <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+      <h4 class="text-center" style="font-size: 1.5rem; margin-bottom: 2rem; font-family: 'ADLaM Display', system-ui; color:white;">
+        Su nueva contraseña debe contener un mínimo de 8 caracteres, de los cuales al menos 1 debe ser numérico, 1 letra mayúscula y 1 letra minúscula.
+      </h4>
+      
+      <h5 class="text-left" style="font-size: 1.2rem; color:#ff0000; margin-bottom: 3rem;">
+        Digite el código enviado a su correo electrónico:
       </h5>
-    </div>
-    <div class="card-body p-4">
+      
       <form [formGroup]="cambiarContraseniaForm" (ngSubmit)="cambiarContrasenia()" novalidate="">
-
-        <p>Su nueva contraseña debe contener un mínimo de 8 caracteres, de los cuales al menos 1 debe ser numérico, 1 letra mayúscula y 1 letra minúscula.
-        </p>
-        <p>Digite el código enviado a su correo electrónico:</p>
-
-        <div class="col-6">
-          <label>Codigo: </label>
-          <input type="text" class="form-control" formControlName="codigo" />
+        <div class="mb-4" style="max-width: 200px; margin: auto;">
+          <label style="font-size: 1.2rem;">Código:</label>
+          <input type="codigo" class="form-control border" formControlName="codigo" 
+                 style="font-size: 1.1rem; background-color: #ffffff; border: 2px solid #ff0000 !important; color: #000;" />
         </div>
 
-        <p>La nueva contraseña</p>
-
-        <div class="col-6">
-            <label></label>
-            <input type="password" class="form-control" formControlName="password" />
+        <div class="col-6 mb-4">
+          <label style="font-size: 1.2rem;">Nueva Contraseña:</label>
+          <input type="password" class="form-control border" formControlName="password" 
+                 style="font-size: 1.1rem; background-color: #ffffff; border: 2px solid #ff0000!important; color: #000;" />
         </div>
 
-        <p>Confirma tu nueva contraseña</p>
-
-        <div class="col-6">
-          <label>Repetir contraseña: </label>
-          <input type="password" class="form-control" formControlName="confirmaPassword" />
+        <div class="col-6 mb-5" style="margin-bottom: 2rem;">
+          <label style="font-size: 1.2rem;">Confirma tu nueva contraseña:</label>
+          <input type="password" class="form-control" formControlName="confirmaPassword" 
+                 style="font-size: 1.1rem; background-color: #ffffff; border: 2px solid #ff0000!important; color: #000;" />
         </div>
 
+        <!-- Error message for password mismatch -->
         @if (cambiarContraseniaForm.hasError('passwordsMismatch')) {
-          <p>Las contraseñas no coinciden</p>
-          }
-          <div class="col-14 text-center">
-            <button type="submit"  class="btn btn-primary" [disabled]="cambiarContraseniaForm.invalid">Guardar</button>
-          </div>
+          <p style="color: red; font-size: 1rem;">Las contraseñas no coinciden</p>
+        }
+
+        <div class="text-center mt-4" style="max-width: 400px; margin: auto;">
+          <button type="submit" class="btn btn" [disabled]="cambiarContraseniaForm.invalid" style="font-size: 1.2rem; color:#ffffff; padding: 0.4rem; width: 35%;">
+            Guardar
+          </button>
+        </div>
       </form>
     </div>
   </div>
- </div>
+</div>

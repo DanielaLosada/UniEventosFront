@@ -1,14 +1,77 @@
-<div *ngIf="eventos && eventos.length > 0; else noEventos">
-    <div *ngFor="let evento of eventos" class="evento-card">
-      <img [src]="evento.urlImagenPoster" alt="Poster de {{ evento.nombre }}" class="evento-imagen">
-      <h3>{{ evento.nombre }}</h3>
-      <p>Fecha: {{ evento.fecha }}</p>
-      <p>Dirección: {{ evento.direccion }}</p>
-      <p>Tipo de evento: {{ evento.tipoEvento }}</p>
+<div class="container mt-5 mb-5" style="margin-top: -400px; height: 120vh;">
+  <!-- Sección de frases fuera del contenedor de búsqueda -->
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <div class="text-center mb-4" style="margin-top: -120px;">
+    <h2 style="font-size: 1.8rem; font-family: 'ADLaM Display', system-ui;">
+      ¡El Futuro del Entretenimiento <span style="color: red; font-family: 'ADLaM Display', system-ui;">Está Aquí!</span>
+    </h2>
+    <p style="font-size: 1.2rem; font-family: 'Montserrat', sans-serif; letter-spacing: 0.20rem;">
+      A s e g u r a  Tu  lugar  en  los  eventos  más  emocionantes
+    </p>
+  </div>
+
+  <!-- Sección de búsqueda -->
+  <div class="p-4 bg-light text-center rounded shadow-sm">
+    <div class="row g-2">
+      <div class="col-md-3">
+        <div class="input-group">
+          <span class="input-group-text text-danger"><i class="fa fa-search"></i></span>
+          <input type="text" class="form-control" placeholder="Buscar Eventos, Escenarios...">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <select class="form-select">
+          <option selected>Categorías</option>
+          <!-- Opciones adicionales aquí -->
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select class="form-select">
+          <option selected>Todas las ciudades</option>
+          <!-- Opciones adicionales aquí -->
+        </select>
+      </div>
+      <div class="col-md-3">
+        <div class="input-group">
+          <span class="input-group-text text-danger"><i class="fa fa-calendar"></i></span>
+          <input type="date" class="form-control" placeholder="Seleccione fecha">
+        </div>
+      </div>
     </div>
   </div>
-  
-  <ng-template #noEventos>
-    <p>No hay eventos disponibles en este momento.</p>
-  </ng-template>
-  
+
+  <!-- Espacio adicional entre la barra de búsqueda y el botón -->
+  <div class="text-center mt-4" style="max-width: 400px; margin: auto;">
+    <button type="submit" class="btn btn" style="font-size: 1.2rem; color:#ffffff; padding: 0.2rem; width: 20%;">
+      Buscar
+    </button>
+  </div>
+
+  <!-- Carrusel de imágenes -->
+  <div id="carouselExampleIndicators" class="carousel slide mt-4">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://firebasestorage.googleapis.com/v0/b/unieventos-54199.appspot.com/o/6299B_8150.jpg?alt=media&token=bd6d0005-fb29-4940-b16a-a711220c27f6" class="d-block w-60 mx-auto" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://firebasestorage.googleapis.com/v0/b/unieventos-54199.appspot.com/o/6347B_1171.jpg?alt=media&token=0e8c84b4-f1b9-40b4-b3c4-456c0ca754a7" class="d-block w-60 mx-auto" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://firebasestorage.googleapis.com/v0/b/unieventos-54199.appspot.com/o/6406B_8305.jpg?alt=media&token=8a44bb1c-eaea-49c9-88e2-10a5fdce9b51" class="d-block w-60 mx-auto" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>

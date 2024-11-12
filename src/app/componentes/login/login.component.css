@@ -1,0 +1,27 @@
+/* Tamaño del botón y campos de entrada */
+.form-control {
+    background-color: transparent;
+    color: white;
+    border-width: 2px;
+  }
+  
+  .btn {
+    background-color: #ff0000;
+    border: #ff0000;
+  }
+  
+  .text-white {
+    color: white;
+  }
+
+  
+  
+  .text {
+    color: #ff0000;
+  }
+  
+  .custom-font {
+    font-family: "ADLaM Display", system-ui;
+    font-size: 1.2rem; /* Ajusta el tamaño de la fuente */
+    color: white;
+  }
