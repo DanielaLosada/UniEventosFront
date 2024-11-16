@@ -18,7 +18,11 @@ import { OrdenPagoComponent } from './componentes/orden-pago/orden-pago.componen
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { EliminarCuentaComponent } from './componentes/eliminar-cuenta/eliminar-cuenta.component';
 import { HistorialComprasComponent } from './componentes/historial-compras/historial-compras.component';
-
+import { CrearCuponComponent } from './componentes/crear-cupon/crear-cupon.component';
+import { ReportesComponent } from './componentes/reportes/reportes.component';
+import { PerfilAdminComponent } from './componentes/perfil-admin/perfil-admin.component';
+import { EliminarCuentaAdminComponent } from './componentes/eliminar-cuenta-admin/eliminar-cuenta-admin.component';
+import { RecomendacionesComponent } from './componentes/recomendaciones/recomendaciones.component';
 export const routes: Routes = [
    { path: 'inicio', component: InicioComponent },
    { path: 'login', component: LoginComponent },
@@ -39,5 +43,10 @@ export const routes: Routes = [
    {path:'perfil-usuario',component:PerfilComponent},
    {path:'eliminar-cuenta',component:EliminarCuentaComponent},
    {path: 'historial-compra',component:HistorialComprasComponent},
+   {path:'crear-cupon',component:CrearCuponComponent},
+   {path:'reportes',component:ReportesComponent},
+   {path:'perfilAdmin' , component:PerfilAdminComponent},
+   {path:'eliminar-cuenta-admin', component:EliminarCuentaAdminComponent},
+   {path: 'recomendaciones', component:RecomendacionesComponent},
    { path: "**", pathMatch: "full", redirectTo: "" }
 ];

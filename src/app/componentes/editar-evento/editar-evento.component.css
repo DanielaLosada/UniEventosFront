@@ -1,0 +1,115 @@
+.form-container {
+    max-width: 900px;
+    margin: auto;
+    color: red;
+    font-family: 'Arial', sans-serif;
+}
+
+.form-container h5 {
+    color: red;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.form-container .form-label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: red;
+}
+
+.form-container input[type="text"],
+.form-container textarea,
+.form-container select {
+    background-color: rgba(87, 77, 77, 0.167);
+    border: 1px solid red;
+    color: black;
+}
+
+.form-container input[type="file"] {
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+.form-container button {
+    background-color: red;
+    color: rgba(87, 77, 77, 0.167);
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: darkred;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.form-col-6 {
+    flex: 0 0 48%;
+}
+
+.form-section-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: red;
+    margin-top: 20px;
+}
+
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.upload-section img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid red;
+}
+.custom-header {
+    background-color: rgba(87, 77, 77, 0.167); 
+    color: white; /* Texto blanco */
+    font-family: 'ADLaM Display', system-ui;
+    text-align: center;
+}
+
+.custom-header text {
+    font-size: 90rem; /* Ajusta el tamaño de la fuente */
+  
+}
+
+.btn-custom-red {
+    background-color: #ff0000 !important; /* Rojo */
+    border-color: #ff0000 !important;   /* Borde rojo */
+    color: #ffffff !important;         /* Texto blanco */
+}
+
+.btn-custom-red:hover {
+    background-color: #cc0000 !important; /* Rojo más oscuro al pasar el mouse */
+    border-color: #cc0000 !important;
+}
+
+.form-control {
+    border: 1px solid #ff0000; /* Borde rojo */
+    box-shadow: none; /* Elimina sombras */
+}
+
+.form-select {
+    border: 1px solid #ff0000; /* Borde rojo */
+}
+
+.localidad-container {
+    background-color:  rgba(87, 77, 77, 0.167);  /* Color de fondo rosa claro */
+    border: 1px solid  rgba(87, 77, 77, 0.167);   /* Borde rosa oscuro */
+}

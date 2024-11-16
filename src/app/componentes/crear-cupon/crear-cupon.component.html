@@ -1,1 +1,61 @@
-<p>crear-cupon works!</p>
+<div class="container mt-5">
+    <div class="content-container" style="margin-top: -100px;">
+        <div class="header">
+            <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+            <h1 style="font-size: 1.9rem; font-family: 'ADLaM Display', system-ui ; text-align: center;">
+                CREAR CUPONES</h1>
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+            <p style=" margin-top: 30px; font-size: 1.2rem; font-family: 'Montserrat', system-ui ; text-align: center;">
+                
+                Información general del cupón</p>
+        </div>
+        <div class="container">
+            <!-- Tarjeta del cupón -->
+            <div class="card-cupon">
+                <h1>%</h1>
+                <p>Al introducir este código en tu próxima compra</p>
+                <input type="text" class="input-code" placeholder="******" disabled />
+                <p>Descuento válido solo en nuestra plataforma www.unieventos.com</p>
+                <p>Esta oferta no puede ser combinada con otras ofertas vigentes en la plataforma.</p>
+                <p><strong>Válido por:</strong></p>
+            </div>
+
+            <!-- Formulario -->
+            <div class="form-container">
+                
+                <div class="form-group">
+                    <label> 
+                        Tipo de cupón:</label>
+                    <div class="tipo-cupon">
+                        <label><input type="radio" name="tipo-cupon" value="unico" /> Cupón de código único</label>
+                        <label><input type="radio" name="tipo-cupon" value="individual" /> Cupón de código individual</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Código del cupón:</label>
+                    <input type="text" placeholder="Ejemplo: DESCUENTO10" />
+                </div>
+
+                <div class="form-group">
+                    <label>Nombre descriptivo:</label>
+                    <input type="text" placeholder="Ejemplo: Cupón del 10% de descuento" />
+                </div>
+
+                <div class="form-group">
+                    <label>Porcentaje de descuento:</label>
+                    <input type="number" placeholder="Ejemplo: 10" />
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha de vencimiento:</label>
+                    <input type="date" />
+                </div>
+
+                <div class="form-group text-center">
+                    <button class="btn">CREAR CUPÓN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

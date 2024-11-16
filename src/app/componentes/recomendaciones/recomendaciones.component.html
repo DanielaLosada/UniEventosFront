@@ -1,50 +1,18 @@
-<div class="container mt-5 mb-5" style="margin-top: -400px; height: 130vh;">
-    <h2 class="text-center mb-4" style="font-size: 2rem; font-family: 'ADLaM Display', system-ui; position: relative; top: -120px; color: #ffffff;">
-        GESTIONAR EVENTOS <span style="color: red;"></span>
-    </h2>
-    
-    
-    <!-- Sección de búsqueda -->
-    <div class="p-4 bg-light text-center rounded shadow-sm" style="margin-top: -130px;">
-      <div class="row g-2">
-        <div class="col-md-3">
-          <div class="input-group">
-            <span class="input-group-text text-danger"><i class="fa fa-search"></i></span>
-            <input type="text" class="form-control" placeholder="Buscar Eventos, Escenarios...">
-          </div>
-        </div>
-        <div class="col-md-3">
-          <select class="form-select">
-            <option selected>Categorías</option>
-            <!-- Opciones adicionales aquí -->
-          </select>
-        </div>
-        <div class="col-md-3">
-          <select class="form-select">
-            <option selected>Todas las ciudades</option>
-            <!-- Opciones adicionales aquí -->
-          </select>
-        </div>
-        <div class="col-md-3">
-          <div class="input-group">
-            <span class="input-group-text text-danger"><i class="fa fa-calendar"></i></span>
-            <input type="date" class="form-control" placeholder="Seleccione fecha">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Espacio adicional entre la barra de búsqueda y el botón -->
-    <div class="text-center mt-4" style="max-width: 400px; margin: 2rem auto;">
-      <button type="submit" class="btn btn-danger" style="font-size: 1.2rem; color:#ffffff; padding: 0.2rem; width: 20%;">Buscar</button>
+<div class="container mt-5 mb-5" style="margin-top: -900px; height: 130vh;">
+    <div style="margin-top: -100px; text-align: center;">
+        <h2 style="font-size: 2rem; font-family: 'ADLaM Display', system-ui; color: #ffffff; margin-bottom: 10px; display: inline-block;">
+            RECOMENDACIONES
+            <span style="display: block; width: 100%; height: 4px; background-color: red; margin-top: 5px;"></span>
+        </h2>
+        <p style="font-family: 'Montserrat', system-ui; color: #ffffff; font-size: 1.2rem; margin-top: 10px;">
+            Hemos visto tu historial de compras y tenemos algunos eventos sugeridos para ti.
+        </p>
     </div>
 
     <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <!-- Título de eventos con línea roja debajo de tamaño ajustado al texto -->
-    <h4 class="text-left" style="font-size: 1.7em; margin-bottom: 0rem; font-family: 'ADLaM Display', system-ui; color: #FFFFFF; display: inline-block; border-bottom: 2px solid red;">
-        EVENTOS
-    </h4>
+
 
     <!-- Contenedor de tarjetas de eventos con espacio reducido entre tarjetas -->
     <div class="row row-cols-1 row-cols-md-4 g-4 mt-3">
@@ -62,7 +30,7 @@
                   <span style="font-size: 1.4rem; font-weight: bold; color: red; display: block;">22</span>
                   <span style="font-size: 1rem; font-weight: normal; font-family: 'Montserrat', sans-serif; display: block;">Ago 2024</span>
                 </div>
-                <button class="btn btn-danger" routerLink="/editar-evento/:id" style="font-size: 0.8rem; padding: 0.3rem 0.6rem; border-radius: 5px;">Editar evento</button>
+                <button class="btn btn-danger" routerLink="/inicio-compra" style="font-size: 0.8rem; padding: 0.3rem 0.6rem; border-radius: 5px;">Compra ya</button>
               </div>
             </div>
           </div>

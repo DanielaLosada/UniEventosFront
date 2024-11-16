@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
-import { HeaderAdminComponent } from './componentes/header-admin/header-admin.component';
+import { HeaderUsuarioComponent } from './componentes/header-usuario/header-usuario.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 
 
@@ -9,7 +9,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterModule, HeaderAdminComponent, FooterComponent
+    RouterModule, HeaderUsuarioComponent, FooterComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

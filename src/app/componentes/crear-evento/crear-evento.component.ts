@@ -15,6 +15,7 @@ export class CrearEventoComponent {
 
   crearEventoForm!: FormGroup;
   tiposDeEvento: string[];
+  
 
   constructor(private formBuilder: FormBuilder) {
     this.crearFormulario();
@@ -50,24 +51,33 @@ export class CrearEventoComponent {
     this.localidades.removeAt(index);
   }
 
-  public onFileChange(event: any, tipo: string) {
-    if (event.target.files.length > 0) {
-      const files = event.target.files;
 
-      switch (tipo) {
-        case 'localidades':
-          this.crearEventoForm.get('imagenLocalidades')?.setValue(files[0]);
-          break;
-        case 'portada':
-          this.crearEventoForm.get('imagenPortada')?.setValue(files[0]);
-          break;
-      }
-    }
-  }
 
   public crearEvento() {
     console.log(this.crearEventoForm.value);
     Swal.fire("Exito!", "Se ha creado un nuevo evento.", "success");
+  }
+
+  previewPortada: string | ArrayBuffer | null = null;
+  previewLocalidades: string | ArrayBuffer | null = null;
+
+  onFileChange(event: Event, type: string) {
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        if (type === 'portada') {
+          this.previewPortada = reader.result;
+        } else if (type === 'localidades') {
+          this.previewLocalidades = reader.result;
+        }
+      };
+
+      reader.readAsDataURL(file); // Convierte el archivo a base64 para usarlo en `<img>`
+    }
   }
 }
 

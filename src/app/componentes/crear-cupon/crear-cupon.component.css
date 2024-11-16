@@ -1,0 +1,156 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+.content-container {
+    max-width: 1200px;
+    background:  rgba(87, 77, 77, 0.167); /* Fondo degradado */
+    border: 1px solid #ff0000; /* Borde rojo */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); /* Sombras rojas */
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card-cupon {
+    background-color: #ff0000; /* Fondo rojo del cupón */
+    border-radius: 15px;
+    padding: 20px;
+    width: 350px;
+    color: #fff;
+    position: relative;
+}
+
+.card-cupon:before,
+.card-cupon:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.card-cupon:before {
+    left: -10px;
+}
+
+.card-cupon:after {
+    right: -10px;
+}
+
+.card-cupon h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.card-cupon .input-code {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    padding: 5px 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.card-cupon p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.form-container {
+    text-align: left;
+    max-width: 500px;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.form-container input[type="date"] {
+    padding-right: 40px; /* Espacio para íconos */
+}
+
+.form-container .form-group {
+    margin-bottom: 15px;
+}
+
+.form-container .btn {
+    background-color: #ff0000;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container .btn:hover {
+    background-color: #d40000;
+}
+
+.tipo-cupon label {
+    display: inline-block;
+    margin-right: 20px; /* Espaciado entre las opciones */
+    font-size: 1rem;
+}

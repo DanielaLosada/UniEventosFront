@@ -1,0 +1,45 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.title-red {
+    font-size: 1.8rem;
+    font-family: 'ADLaM Display', sans-serif;
+    color: #ff0000;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin: 1rem 0 1rem;
+    font-weight: bold;
+}
+
+.form-control {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #ff0000;
+}
+
+.form-control:focus {
+    border-color: #ff0000;
+    box-shadow: none;
+}
+
+.form-control.readonly {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+.btn-link {
+    font-size: 1rem;
+    padding: 0.4rem;
+}
+
+.btn-danger {
+    background-color: #ff0000;
+    border: none;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+}

@@ -1,78 +1,93 @@
-<div class="container">
-    <div class="card">
-      <div class="card-header p-4">
-        <h5 class="mb-0">
-          <i class="fa-solid fa-user-plus me-3"></i>Registro de un nuevo evento
-        </h5>
-      </div>
-      <div class="card-body p-4">
-        <form [formGroup]="crearEventoForm" (ngSubmit)="crearEvento()" novalidate>
-            <div class="col-6">
-                <label>Nombre: </label>
-                <input type="text" class="form-control" formControlName="nombre" />
-            </div>
-        
-            <div class="col-6">
-                <label>Descripción: </label>
-                <textarea formControlName="descripcion" class="form-control"></textarea>   
-            </div>
-        
-            <div class="col-6">
-                <label class="form-label">Tipo: </label>
-                <select formControlName="tipo" class="form-select" >
-                    <option value="">Seleccione un tipo</option>
-                    @for (item of tiposDeEvento; track $index) {
-                        <option value="{{item}}">{{item}}</option>
-                    }
-                </select>
-             </div>
-        
-            <div class="col-6">
-                <label>Dirección: </label>
-                <input type="text" class="form-control" formControlName="direccion" />
-            </div>
-        
-            <div class="col-6">
-                <label>Ciudad: </label>
-                <input type="text" class="form-control" formControlName="ciudad" />
-            </div>
-        
-            <!-- Localidades dinámicas -->
-            <div class="col-6" formArrayName="localidades">
-                <label>Localidades</label>
-                <div>
-                    <button type="button" class="btn btn-primary" (click)="agregarLocalidad()">Añadir Localidad</button>
-                </div>
+<div class="container mt-5">
+    <div class="card shadow" style="background-color: rgba(87, 77, 77, 0.167); margin-top: -100px;">
+        <div class="card-header p-4 custom-header custom-header text">
+            <h5 class="mb-0">
+                <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+                <i class=""></i>Crear Eventos
+            </h5>
+        </div>
+        <div class="card-body p-4">
+            <form [formGroup]="crearEventoForm" (ngSubmit)="crearEvento()" novalidate>
+                <div class="row">
+                    <!-- Información del evento -->
+                    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Nombre: </label>
+                        <input type="text" class="form-control" formControlName="nombre" />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Descripción: </label>
+                        <textarea formControlName="descripcion" class="form-control"></textarea>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Tipo: </label>
+                        <select formControlName="tipo" class="form-select">
+                            <option value="">Seleccione un tipo</option>
+                            <option *ngFor="let item of tiposDeEvento" [value]="item">{{ item }}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Dirección: </label>
+                        <input type="text" class="form-control" formControlName="direccion" />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Ciudad: </label>
+                        <input type="text" class="form-control" formControlName="ciudad" />
+                    </div>
 
-                <div *ngFor="let localidad of localidades.controls; let i = index" [formGroupName]="i">
-                    <label>Nombre de la Localidad:</label>
-                    <input type="text" class="form-control"  formControlName="nombreLocalidad" />
-                    
-                    <label>Precio:</label>
+                </div>
+                <div class="row">
+    <div class="col-12 mb-3">
+        <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Localidades</label>
+        <div>
+            <button type="button" class="btn btn-custom-red custom-red:hover" (click)="agregarLocalidad()">Añadir Localidad</button>
+        </div>
+
+        <div 
+            *ngFor="let localidad of localidades.controls; let i = index" 
+            [formGroupName]="i" 
+            class="mt-3 p-3 rounded localidad-container"
+        >
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Nombre de la Localidad:</label>
+                    <input type="text" class="form-control" formControlName="nombreLocalidad" />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Precio:</label>
                     <input type="number" class="form-control" formControlName="precio" />
-        
-                    <div>
-                        <button type="button" class="btn btn-primary" (click)="eliminarLocalidad(i)">Eliminar</button>
+                </div>
+                <div class="col-12 text-end">
+                    <button type="button" class="btn btn-custom-red custom-red:hover btn-sm" (click)="eliminarLocalidad(i)">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+>
+                <!-- Imágenes -->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Imagen evento: </label>
+                        <input type="file" class="form-control" (change)="onFileChange($event, 'portada')" />
+                        <div class="text-center mt-2" *ngIf="previewPortada">
+                            <img [src]="previewPortada" alt="Vista previa de la portada" class="img-fluid rounded" style="max-height: 200px;" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Imagen localidades: </label>
+                        <input type="file" class="form-control" (change)="onFileChange($event, 'localidades')" />
+                        <div class="text-center mt-2" *ngIf="previewLocalidades">
+                            <img [src]="previewLocalidades" alt="Vista previa de localidades" class="img-fluid rounded" style="max-height: 200px;" />
+                        </div>
                     </div>
                 </div>
 
-            </div>
-        
-            <div class="col-6">
-                <label>Imagen evento: </label>
-                <input type="file" class="form-control" (change)="onFileChange($event, 'portada')" />
-            </div>
-        
-            <div class="col-6">
-                <label>Imagen localidades: </label>
-                <input type="file" class="form-control" (change)="onFileChange($event, 'localidades')" />
-            </div>
-        
-            <div class="col-14 text-center">
-                <button type="submit" class="btn btn-primary">Crear evento</button>
-            </div>
-
-        </form>
-      </div>
+                <!-- Botón de envío -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-custom-red custom-red:hover">Crear evento</button>
+                </div>
+            </form>
+        </div>
     </div>
-   </div>
+</div>
