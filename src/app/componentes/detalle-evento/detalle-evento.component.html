@@ -1,27 +1,102 @@
-<div class="container mt-4 text-white bg-dark p-4 rounded">
-    <div class="text-center border-bottom border-secondary pb-3 mb-4">
-      <h2 class="text-uppercase">{{ evento?.nombre }} - {{ evento?.ciudad }}</h2>
-    </div>
+<div class="container" style="max-width: 80%; color: white; padding: 20px; border-radius: 10px; margin: 0 auto;">
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   
-    <div class="row">
-      <div class="col-md-6 text-center">
-        <img [src]="evento?.imagenPortada" alt="Imagen del evento" class="img-fluid rounded w-100">
+  <!-- Título principal -->
+  <h3 style="text-align: left; color: white; font-family: 'ADLaM Display', sans-serif; font-size: 1.5rem; padding-bottom: 5px; margin-top: -80px;">
+      LUIS ALFONSO | SEÑORACITOS - MEDELLÍN
+  </h3>
+  <hr style="border-top: 1px solid white; width: 100%; margin: 0 auto 20px auto;">
+  
+  <!-- Información general y descripción -->
+  <div class="row justify-content-center">
+      <div class="col-md-5">
+          <img src="https://firebasestorage.googleapis.com/v0/b/unieventos-54199.appspot.com/o/evento11.webp?alt=media&token=171e9dc8-93cf-4dfb-b097-48787d07ad59" 
+               class="img-fluid" 
+               alt="Imagen del evento" 
+               style="width: 100%; height: auto; border-radius: 5px; margin-right: 20px;">
       </div>
-      <div class="col-md-6">
-        <h4 class="mb-3">Información general</h4>
-        <p><strong>Lugar:</strong> {{ evento?.direccion }}</p>
-        <p><strong>Ciudad:</strong> {{ evento?.ciudad }}</p>
-        <p><strong>Fecha:</strong> {{ evento?.fecha | date: 'yyyy-MM-dd' }}</p>
-        <p><strong>Hora:</strong> {{ evento?.fecha | date: 'shortTime' }}</p>
-        <p><strong>Categoría:</strong> {{ evento?.tipo }}</p>
-        <p><strong>Estado:</strong> <span [ngClass]="{'text-success': evento?.estado === 'Activo', 'text-danger': evento?.estado !== 'Activo'}">{{ evento?.estado }}</span></p>
-        <p><strong>Responsable:</strong> Eventos Sirvalo Pues S.A.S.</p>
-        <p><strong>Dirección:</strong> Cra 13 #64 - 79</p>
-        <p><strong>Nit:</strong> 901447521-3</p>
-        <p><strong>Apertura puertas:</strong> 2:00 p.m.</p>
+      <div class="col-md-7">
+          <h4 style="font-family: Arial, sans-serif; color: white; font-style: italic; margin-top: 10px;">Información general</h4>
+          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Ciudad: <span style="color: white;">Medellín</span></p>
+          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Dirección: <span style="color: white;">Medellín</span></p>
+          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Fecha: <span style="color: white;">2024-08-20</span></p>
+          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Hora: <span style="color: white;">8:00PM</span></p>
+          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Categoría: <span style="color: white;">Conciertos</span></p>
+          
+          <!-- Descripción alineada -->
+          <p style="text-align: justify; color: white; font-family: Montserrat, sans-serif; font-size: 1.1rem; line-height: 1.6; margin-top: 20px;">
+            ¡No te pierdas <strong>SEÑORACITOS EN FAMILIA</strong> en el <strong>Teatro Universidad de Medellín</strong>! Este emocionante evento promete ser mucho más que un simple concierto; es una verdadera celebración para todas las edades. Luis Alfonso, el destacado cantante de música popular, estará en el escenario para brindar una tarde inolvidable llena de música y diversión para toda la familia.
+          </p>
       </div>
-    </div>
   </div>
   
+  <!-- Título de Ubicación y Precios, fuera del div.row -->
+  <h3 style="text-align: left; color: white; font-family: 'ADLaM Display', sans-serif; font-size: 1.5rem; padding-bottom: 5px; margin-top: 60px;">
+    UBICACIÓN Y PRECIOS
+  </h3>
   
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table table-bordered text-center" style="color: white; border-color: white; background-color: transparent; margin-top: 20px;">
+        <thead>
+          <tr>
+            <th style="border-color: white; color: #ff0000; background-color: transparent; border-width: 2px; padding: 15px;">Ubicación</th>
+            <th style="border-color: white; color: #ff0000; background-color: transparent; border-width: 2px; padding: 15px;">Precio</th>
+            <th style="border-color: white; color: #ff0000; background-color: transparent; border-width: 2px; padding: 15px;">Aforo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color: lime; border-color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">PLATEA DELANTERA</td>
+            <td style="border-color: white; color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">170.000</td>
+            <td style="border-color: white; color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">384</td>
+          </tr>
+          <tr>
+            <td style="color: purple; border-color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">BALCÓN</td>
+            <td style="border-color: white; color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">130.000</td>
+            <td style="border-color: white; color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">358</td>
+          </tr>
+          <tr>
+            <td style="color: magenta; border-color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">GENERAL</td>
+            <td style="border-color: white; color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">101.300</td>
+            <td style="border-color: white; color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">960</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   
+    <!-- Image beside the table -->
+    <div class="col-md-5">
+      <img src="https://firebasestorage.googleapis.com/v0/b/unieventos-54199.appspot.com/o/TEATRO_MAYO_SAN_FRANCISCO_con_gral.jpg?alt=media&token=5bf0ae75-84d7-4970-afba-21d44779c94b" 
+           class="img-fluid" 
+           alt="Imagen del evento" 
+           style="width: 80%; height: auto; border-radius: 5px; margin-left: auto; display: block;">
+    </div>
+    
+  </div>
+  
+  <!-- Botón de compra -->
+
+  <div class="text-center mt-4" style="max-width: 400px; margin: auto;">
+    <button type="submit" class="btn btn" routerLink="/inicio-compra" style="font-size: 1.2rem; color:#ffffff; padding: 0.2rem; width: 40%;">
+      Realizar compra
+    </button>
+  </div>
+  
+  <!-- Recomendaciones Section -->
+  <h3 style="text-align: left; color: white; font-family: 'ADLaM Display', sans-serif; font-size: 1.5rem; padding-bottom: 5px; margin-top: 40px;">
+    RECOMENDACIONES
+  </h3>
+  <h4 style="font-family: Arial, sans-serif; color: white; font-style: italic; margin-top: 10px;">Elige tu alojamiento</h4>
+
+  <div style="text-align: left;">
+    <img src="https://firebasestorage.googleapis.com/v0/b/unieventos-54199.appspot.com/o/Captura%20de%20pantalla%202024-11-12%20221838.png?alt=media&token=2db71470-518a-440b-a772-227dba1bf874" 
+         class="img-fluid" 
+         alt="Imagen de recomendaciones" 
+         style="width: 50%; height: auto; border-radius: 5px; margin-top: 10px;">
+  </div>
+
+
+
+</div>
+

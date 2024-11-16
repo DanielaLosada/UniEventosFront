@@ -1,0 +1,78 @@
+body {
+    background-color: #1a1a1a;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.order-container {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: auto;
+    position: relative;
+}
+
+.order-header .date {
+    font-size: 0.9em;
+    color: #999;
+    margin-bottom: 0;
+}
+
+.order-header .order-number {
+    font-size: 0.9em;
+    color: #999;
+    margin-bottom: 0;
+    margin-top: 30px; /* Baja el número de la orden */
+}
+
+.order-header h4, .payment-info h5 {
+    font-family: 'Adam', sans-serif;
+}
+
+.text-center h4 {
+    font-weight: bold;
+    font-family: 'Adam', sans-serif;
+}
+
+.order-details p,
+.payment-info p {
+    font-family: 'Montserrat', sans-serif;
+    margin: 5px 0;
+}
+
+.total {
+    font-size: 1.1em;
+    color: #ffffff;
+}
+
+.payment-info h5 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.qr-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.qr-code {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.salir-link {
+    color: red;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

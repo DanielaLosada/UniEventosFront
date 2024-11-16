@@ -1,0 +1,94 @@
+.header-custom {
+    background-color: transparent;
+    color: white;
+    width: 100%; 
+    margin: 0; 
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.nav-link {
+    color: white !important; 
+}
+
+.custom-font {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem; /* Ajusta el tamaño de la fuente */
+  color: white;
+}
+  
+.btn-outline {
+    border-color: transparent;
+    color: white;
+}
+
+.btn-outline:hover {
+  
+  background-color:#ff0000; /* Cambia el color de fondo al pasar el mouse */
+  color:white; /* Cambia el color del texto al pasar el mouse */
+   
+  border-color:#ff0000; /* Cambia el color del borde al pasar el mouse (opcional) */
+}
+  
+.icono {
+    width: 253px; 
+    height: 149px;
+}
+
+.text-button {
+    background: none;         /* Sin fondo */
+    border: none;             /* Sin borde */
+    color: white;             /* Color del texto */
+    font-weight: bold;        /* Negrita */
+    text-decoration: underline; /* Subrayado */
+    cursor: pointer;          /* Manito al pasar el mouse */
+    font-family: 'Montserrat', sans-serif; /* Fuente personalizada si se necesita */
+}
+
+.text-button:hover {
+    text-decoration: underline; /* Mantener el subrayado al pasar el mouse */
+    color: #cccccc;            /* Cambiar color al pasar el mouse, opcional */
+}
+
+.custom-title {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+.custom-button {
+    display: block;
+    background-color: #333; /* Color oscuro para el fondo */
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    font-size: 1rem;
+}
+
+.custom-button:hover {
+    background-color: #444; /* Cambia el color al pasar el ratón */
+}
+
+.menu-section-title {
+    display: block;
+    color: red;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
+.offcanvas.text-bg-dark {
+    background-color: black !important; /* Aplica el fondo semitransparente */
+}

@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 header-custom">
+        <div class="col-md-3 mb-2 mb-md-0">
+            <a routerLink="/inicio" class="d-inline-flex link-body-emphasis text-decoration-none align-items-center">
+                <img src="https://firebasestorage.googleapis.com/v0/b/unieventos-54199.appspot.com/o/logo.png?alt=media&token=f02c0bea-0419-4e41-a5f9-a933da9def3c" alt="Icono" routerLink="/inicio" class="fs-3 icono">
+               
+            </a>
+        </div>
+  
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-end mb-md-0">
+            
+       </ul>
+  
+       <div class="col-md-4 d-flex align-items-center justify-content-end" style="margin-top: -70px;">
+        <!-- Contenedor de íconos alineados a la izquierda -->
+        <div class="d-flex align-items-center me-3">
+            <i routerLink="/inicio" class="fa-solid fa-pen-to-square fa-lg"  style="color: #ffffff; margin-right: 2px; font-size: 1.5rem;"></i>
+        </div>
+    
+        <!-- Botones de texto alineados a la derecha -->
+        <button type="button" style="color: #ff0000;" class="btn  custom-font me-2">Admin</button>
+        <button class="btn btn-outline custom-font me-3" style="padding: 0; white-space: nowrap;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+            Carlos Florez
+        </button>
+        <button type="button" routerLink="/inicio" class="btn custom-font text-button">Salir</button>
+    </div>
+    </header>
+</div>
+
+
+<!-- Menú Offcanvas -->
+<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title custom-title" id="offcanvasMenuLabel">Mi cuenta</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="navbar-nav flex-column pe-3">
+            <!-- Texto de sección sin enlace -->
+            <li class="nav-item">
+                <span class="menu-section-title highlight-red">Configuración de la cuenta</span>
+            </li>
+            <li class="nav-item">
+                <a class="custom-button" href="#" routerLink="/perfil-usuario" data-bs-dismiss="offcanvas">Perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="custom-button" href="#" routerLink="/eliminar-cuenta"href="#" data-bs-dismiss="offcanvas">Eliminar cuenta</a>
+            </li>
+            <!-- Otro texto de sección sin enlace -->
+            <li class="nav-item">
+                <span class="menu-section-title highlight-red">Dashboard</span>
+            </li>
+            <li class="nav-item">
+                <a class="custom-button" href="#"routerLink="/crear-evento"href="#" data-bs-dismiss="offcanvas">Crear eventos</a>
+            </li>
+            <li class="nav-item">
+                <a class="custom-button" href="#"routerLink="/eliminar-cuenta"href="#" data-bs-dismiss="offcanvas">Crear cupones</a>
+            </li>
+            <li class="nav-item">
+                <a class="custom-button" href="#"routerLink="/eliminar-cuenta"href="#" data-bs-dismiss="offcanvas">Generar reportes</a>
+            </li>
+        </ul>
+    </div>
+</div>
+  
+

@@ -1,0 +1,63 @@
+body {
+    background-color: #1b1b1b;
+    color: white;
+}
+.container {
+    max-width: 80%;
+}
+.header {
+    background-color: rgba(51, 51, 51, 0.8); /* Fondo gris translúcido */
+    padding: 15px;
+    text-align: center;
+    color: #ff0000;
+    font-weight: bold;
+    border-radius: 8px; /* Bordes redondeados */
+}
+.summary, .total-section {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+}
+.summary h5 {
+    font-size: 1.25rem;
+}
+.btn-custom {
+    background-color: #ff0000;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+.icon {
+    color: #ff0000;
+    margin-right: 8px;
+}
+.highlight {
+    color: #ff0000;
+}
+.movie-image {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.container {
+    max-width: 80%;
+    margin-top: -10px; /* Subir el contenedor */
+}
+
+.text-left {
+    text-align: left; /* Alinea el contenido del contenedor a la izquierda */
+}
+
+
+.event-image {
+        width: 180px; /* Fixed width */
+        height: 180px; /* Fixed height */
+        object-fit: cover; /* Ensures the image scales and fits */
+        margin-top: 50px; /* Adjust this value to move the image down */
+        margin-left: -45px; /* Adjust this value to move the image left */
+        border-radius: 5px; /* Optional: adds rounded corners */
+  }
+
+  
+

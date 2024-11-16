@@ -1,0 +1,43 @@
+/* General body styling */
+body {
+    background-color: #333;
+    color: white;
+  }
+  
+  /* Card styling */
+  .card {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  /* Text colors for categories */
+  .text-lime {
+    color: lime;
+  }
+  
+  .text-yellow {
+    color: yellow;
+  }
+  
+  .text-magenta {
+    color: magenta;
+  }
+  
+  /* Highlighted text color */
+  .highlight {
+    color: #ff0000;
+  }
+  
+  /* Input and select customization */
+  .form-select, .form-control, .btn {
+    border-radius: 5px;
+  }
+  
+  /* Custom button styling */
+  .btn-custom {
+    background-color: #ff0000;
+    color: white;
+    font-weight: bold;
+  }
+  

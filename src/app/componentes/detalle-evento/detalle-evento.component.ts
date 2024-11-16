@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EventoDTO } from '../../dto/evento-dto';
+import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { EventosService } from '../../servicios/eventos.service';
 import { CommonModule } from '@angular/common';
@@ -8,7 +9,7 @@ import { CommonModule } from '@angular/common';
 @Component({
  selector: 'app-detalle-evento',
  standalone: true,
- imports: [CommonModule],
+ imports: [CommonModule, RouterModule],
  templateUrl: './detalle-evento.component.html',
  styleUrl: './detalle-evento.component.css'
 })
