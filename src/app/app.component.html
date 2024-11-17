@@ -1,4 +1,11 @@
-<app-header-usuario></app-header-usuario>
+<!-- Header público -->
+<app-header *ngIf="!isLogged"></app-header>
+
+<!-- Header Admin -->
+<app-header-admin *ngIf="isLogged && role === 'ADMINISTRADOR'"></app-header-admin>
+
+<!-- Header Usuario -->
+<app-header-usuario *ngIf="isLogged && role === 'CLIENTE'"></app-header-usuario>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
  

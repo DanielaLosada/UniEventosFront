@@ -33,13 +33,20 @@ public isLogged(): boolean {
 
 public login(token: string) {
   this.setToken(token);
-  this.router.navigate(["/registro"]);
-}
-
+  const rol = this.getRol();
+  let destino = rol == "ADMINISTRADOR" ? "/home-admin" : "/home-cliente";
+  this.router.navigate([destino]).then(() => {
+    window.location.reload();
+  });
+ }
+ 
 public logout() {
   window.sessionStorage.clear();
-  this.router.navigate(["/login"]);
-}
+  this.router.navigate(["/login"]).then(() => {
+    window.location.reload();
+  });
+ }
+ 
 
 private decodePayload(token: string): any {
   const payload = token!.split(".")[1];

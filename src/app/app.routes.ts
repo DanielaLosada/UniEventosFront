@@ -23,15 +23,17 @@ import { ReportesComponent } from './componentes/reportes/reportes.component';
 import { PerfilAdminComponent } from './componentes/perfil-admin/perfil-admin.component';
 import { EliminarCuentaAdminComponent } from './componentes/eliminar-cuenta-admin/eliminar-cuenta-admin.component';
 import { RecomendacionesComponent } from './componentes/recomendaciones/recomendaciones.component';
+import { LoginGuard } from './guards/permiso.service';
+import { RolesGuard } from './guards/roles.service';
 export const routes: Routes = [
-   { path: 'inicio', component: InicioComponent },
-   { path: 'login', component: LoginComponent },
+   { path: 'inicio', component: InicioComponent,canActivate: [LoginGuard] },
+   { path: 'login', component: LoginComponent,canActivate: [LoginGuard] },
    { path: 'registro', component: RegistroComponent },
-   {path: 'crear-evento', component: CrearEventoComponent},
+   {path: 'crear-evento', component: CrearEventoComponent,  canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] }},
    {path: 'cambiar-contrasenia', component: CambiarContraseniaComponent},
    {path: 'olvide-contrasenia', component: OlvideContraseniaComponent},
-   { path: 'editar-evento/:id', component: EditarEventoComponent },
-   { path: 'gestion-eventos', component: GestionEventosComponent },
+   { path: 'editar-evento/:id', component: EditarEventoComponent,  canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] } },
+   { path: 'gestion-eventos', component: GestionEventosComponent,  canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] } },
    { path: 'detalle-evento/:id', component: DetalleEventoComponent },
    { path: 'activar-cuenta', component: ActivacionComponent },
    {path:'filtrar-eventos' , component: FiltroEventosComponent},
@@ -43,10 +45,10 @@ export const routes: Routes = [
    {path:'perfil-usuario',component:PerfilComponent},
    {path:'eliminar-cuenta',component:EliminarCuentaComponent},
    {path: 'historial-compra',component:HistorialComprasComponent},
-   {path:'crear-cupon',component:CrearCuponComponent},
-   {path:'reportes',component:ReportesComponent},
-   {path:'perfilAdmin' , component:PerfilAdminComponent},
-   {path:'eliminar-cuenta-admin', component:EliminarCuentaAdminComponent},
+   {path:'crear-cupon',component:CrearCuponComponent,  canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] }},
+   {path:'reportes',component:ReportesComponent,  canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] }},
+   {path:'perfilAdmin' , component:PerfilAdminComponent,  canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] }},
+   {path:'eliminar-cuenta-admin', component:EliminarCuentaAdminComponent,  canActivate: [RolesGuard], data: { expectedRole: ["ADMINISTRADOR"] }},
    {path: 'recomendaciones', component:RecomendacionesComponent},
    { path: "**", pathMatch: "full", redirectTo: "" }
 ];
