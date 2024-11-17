@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class PublicoService {
 
 
- private publicoURL = "http://localhost:8082/api/public";
+ private publicoURL = "http://localhost:8083/api/public";
 
 
  constructor(private http: HttpClient) { }

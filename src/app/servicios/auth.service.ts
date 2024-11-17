@@ -12,7 +12,7 @@ import { LoginDTO } from '../dto/login-dto';
 export class AuthService {
 
 
- private authURL = "http://localhost:8082/api/auth";
+ private authURL = "http://localhost:8083/api/auth";
 
 
  constructor(private http: HttpClient) { }

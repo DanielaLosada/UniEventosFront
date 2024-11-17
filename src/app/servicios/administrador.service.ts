@@ -12,9 +12,9 @@ import { Observable } from 'rxjs';
 export class AdministradorService {
 
 
- private adminURL = "http://localhost:8082/api/admin";
+ private adminURL = "http://localhost:8083/api/admin";
 
- private imgURL = "http://localhost:8082/api/imagenes"
+ private imgURL = "http://localhost:8083/api/imagenes"
 
 
  constructor(private http: HttpClient) { }
