@@ -11,5 +11,4 @@ export interface CrearEventoDTO {
     imagenPortada : String, 
     imagenLocalidad : String, 
     localidades : LocalidadDTO[],
-    alojamientosCercanos : CrearAlojamientoDTO[]
 }

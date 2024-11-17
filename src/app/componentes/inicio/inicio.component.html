@@ -21,10 +21,10 @@
       </div>
       <div class="col-md-3">
         <select class="form-select">
-          <option selected>Categorías</option>
-          <!-- Opciones adicionales aquí -->
+          <option value="" disabled selected>Categorías</option>
+          <option *ngFor="let tipo of tiposDeEvento" [value]="tipo">{{ tipo }}</option>
         </select>
-      </div>
+      </div>      
       <div class="col-md-3">
         <select class="form-select">
           <option selected>Todas las ciudades</option>
@@ -50,19 +50,19 @@
   <!-- Carrusel de imágenes -->
   <div id="carouselExampleIndicators" class="carousel slide mt-4">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button *ngFor="let img of imagenesCarrusel; let i = index"
+              [class.active]="i === 0"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              [attr.data-bs-slide-to]="i"
+              [attr.aria-label]="'Slide ' + (i + 1)">
+      </button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://firebasestorage.googleapis.com/v0/b/unieventos-54199.appspot.com/o/6299B_8150.jpg?alt=media&token=bd6d0005-fb29-4940-b16a-a711220c27f6" class="d-block w-60 mx-auto" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://firebasestorage.googleapis.com/v0/b/unieventos-54199.appspot.com/o/6347B_1171.jpg?alt=media&token=0e8c84b4-f1b9-40b4-b3c4-456c0ca754a7" class="d-block w-60 mx-auto" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://firebasestorage.googleapis.com/v0/b/unieventos-54199.appspot.com/o/6406B_8305.jpg?alt=media&token=8a44bb1c-eaea-49c9-88e2-10a5fdce9b51" class="d-block w-60 mx-auto" alt="...">
+      <div *ngFor="let img of imagenesCarrusel; let i = index" 
+           class="carousel-item" 
+           [class.active]="i === 0">
+        <img [src]="img" class="d-block w-60 mx-auto" alt="Imagen de evento">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

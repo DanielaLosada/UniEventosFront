@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { CommonModule } from '@angular/common'; // Importa CommonModule
+import { AdministradorService } from '../../servicios/administrador.service';
+import { PublicoService } from '../../servicios/publico.service';
+import { CrearEventoDTO } from '../../dto/crear-evento-dto';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,24 +17,27 @@ import Swal from 'sweetalert2';
 export class CrearEventoComponent {
 
   crearEventoForm!: FormGroup;
-  tiposDeEvento: string[];
-  
+  tiposDeEvento: String[];
 
-  constructor(private formBuilder: FormBuilder) {
+  imagenPortada?: File;
+  imagenLocalidad?: File;
+
+  constructor(private formBuilder: FormBuilder,private publicoService: PublicoService, private administradorService: AdministradorService) {
     this.crearFormulario();
-    this.tiposDeEvento = ['Concierto', 'Fiesta', 'Teatro', 'Deportes'];
+    this.tiposDeEvento = [];
+    this.listarTipos();
   }
 
   private crearFormulario() {
     this.crearEventoForm = this.formBuilder.group({
       nombre: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
-      tipo: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
       ciudad: ['', [Validators.required]],
-      localidades: this.formBuilder.array([]),
+      tipo: ['', [Validators.required]],
       imagenPortada: ['', [Validators.required]],
-      imagenLocalidades: ['', [Validators.required]]
+      imagenLocalidad: ['', [Validators.required]],
+      localidades: this.formBuilder.array([]),
     });
   }
 
@@ -51,33 +57,64 @@ export class CrearEventoComponent {
     this.localidades.removeAt(index);
   }
 
-
-
-  public crearEvento() {
-    console.log(this.crearEventoForm.value);
-    Swal.fire("Exito!", "Se ha creado un nuevo evento.", "success");
+  public subirImagen(tipo: string) {
+    const formData = new FormData();
+    const imagen = tipo === 'portada' ? this.imagenPortada : this.imagenLocalidad;
+  
+    if (imagen) {
+      formData.append('imagen', imagen);
+      this.administradorService.subirImagen(formData).subscribe({
+        next: (data) => {
+          this.crearEventoForm.get(tipo === 'portada' ? 'imagenPortada' : 'imagenLocalidades')?.setValue(data.respuesta);
+          Swal.fire("Éxito!", "Se ha subido la imagen.", "success");
+        },
+        error: (error) => {
+          Swal.fire("Error!", error.error.respuesta, "error");
+        }
+      });
+    } else {
+      Swal.fire("Error!", "Por favor seleccione una imagen antes de subirla.", "error");
+    }
   }
+
+   public crearEvento() {
+    if (this.crearEventoForm.valid) {
+      const crearEventoDTO = this.crearEventoForm.value as CrearEventoDTO;
+      this.administradorService.crearEvento(crearEventoDTO).subscribe({
+        next: (data) => {
+          Swal.fire("Exito!", "Se ha creado un nuevo evento.", "success");
+        },
+        error: error => {
+          Swal.fire("Error!", error.error.respuesta, "error");
+        }
+      });
+    } else {
+      Swal.fire("Error!", "Por favor complete todos los campos obligatorios.", "error");
+    }
+  }
+  
+  public listarTipos(){
+    this.publicoService.listarTipos().subscribe({
+      next: (data) => {
+        this.tiposDeEvento = data.respuesta;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+   }
+   
+   
 
   previewPortada: string | ArrayBuffer | null = null;
   previewLocalidades: string | ArrayBuffer | null = null;
 
-  onFileChange(event: Event, type: string) {
-    const input = event.target as HTMLInputElement;
-
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        if (type === 'portada') {
-          this.previewPortada = reader.result;
-        } else if (type === 'localidades') {
-          this.previewLocalidades = reader.result;
-        }
-      };
-
-      reader.readAsDataURL(file); // Convierte el archivo a base64 para usarlo en `<img>`
+  public onFileChange(event: any, tipo: string) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      tipo == 'imagenLocalidades' ? (this.imagenLocalidad = file) : (this.imagenPortada = file);
     }
-  }
+   }
+   
 }
 

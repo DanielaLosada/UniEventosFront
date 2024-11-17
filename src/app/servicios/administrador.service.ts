@@ -38,14 +38,17 @@ export class AdministradorService {
    return this.http.delete<MensajeDTO>(`${this.adminURL}/eliminar-evento/${id}`);
  }
 
+ public listarEventos(): Observable<MensajeDTO> {
+  return this.http.get<MensajeDTO>(`${this.adminURL}/evento/listar-eventos`);
+}
 
- //public listarEventosAdmin(): Observable<MensajeDTO> {
- //return this.http.get<MensajeDTO>(`${this.adminURL}/evento/obtener-todos`);
- //}
 
+public listarTipos(): Observable<MensajeDTO> {
+  return this.http.get<MensajeDTO>(`${this.adminURL}/evento/obtener-tipos`);
+}
 
  public subirImagen(imagen: FormData): Observable<MensajeDTO> {
-   return this.http.post<MensajeDTO>(`${this.imgURL}/imagen/subir`, imagen);
+   return this.http.post<MensajeDTO>(`${this.imgURL}/subir-imagen`, imagen);
  }
 
 }

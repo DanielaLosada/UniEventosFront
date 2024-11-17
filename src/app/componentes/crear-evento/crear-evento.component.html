@@ -7,7 +7,7 @@
             </h5>
         </div>
         <div class="card-body p-4">
-            <form [formGroup]="crearEventoForm" (ngSubmit)="crearEvento()" novalidate>
+            <form [formGroup]="crearEventoForm" novalidate>
                 <div class="row">
                     <!-- Información del evento -->
                     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -22,8 +22,8 @@
                     <div class="col-md-6 mb-3">
                         <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Tipo: </label>
                         <select formControlName="tipo" class="form-select">
-                            <option value="">Seleccione un tipo</option>
-                            <option *ngFor="let item of tiposDeEvento" [value]="item">{{ item }}</option>
+                            <option value="" disabled selected>Seleccione un tipo</option>
+                            <option *ngFor="let tipo of tiposDeEvento" [value]="tipo">{{ tipo }}</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
@@ -42,7 +42,6 @@
         <div>
             <button type="button" class="btn btn-custom-red custom-red:hover" (click)="agregarLocalidad()">Añadir Localidad</button>
         </div>
-
         <div 
             *ngFor="let localidad of localidades.controls; let i = index" 
             [formGroupName]="i" 
@@ -69,14 +68,16 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Imagen evento: </label>
-                        <input type="file" class="form-control" (change)="onFileChange($event, 'portada')" />
+                        <input type="file" class="form-control" (change)="onFileChange($event, 'imagenPortada')" />
+                        <button type="button" class="btn btn-primary" (click)="subirImagen('imagenPortada')" ><i class="fa-solid fa-cloud-arrow-up"></i></button>
                         <div class="text-center mt-2" *ngIf="previewPortada">
                             <img [src]="previewPortada" alt="Vista previa de la portada" class="img-fluid rounded" style="max-height: 200px;" />
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Imagen localidades: </label>
-                        <input type="file" class="form-control" (change)="onFileChange($event, 'localidades')" />
+                        <input type="file" class="form-control" (change)="onFileChange($event, 'imagenLocalidad')" />
+                        <button type="button" class="btn btn-primary" (click)="subirImagen('imagenLocalidad')" ><i class="fa-solid fa-cloud-arrow-up"></i></button>
                         <div class="text-center mt-2" *ngIf="previewLocalidades">
                             <img [src]="previewLocalidades" alt="Vista previa de localidades" class="img-fluid rounded" style="max-height: 200px;" />
                         </div>
@@ -85,7 +86,7 @@
 
                 <!-- Botón de envío -->
                 <div class="text-center">
-                    <button type="submit" class="btn btn-custom-red custom-red:hover">Crear evento</button>
+                    <button type="submit" (click)="crearEvento()" class="btn btn-custom-red custom-red:hover">Crear evento</button>
                 </div>
             </form>
         </div>
