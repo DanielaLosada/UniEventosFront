@@ -17,21 +17,21 @@
     <div class="row align-items-center my-4" style="margin-bottom: 30px;">
         <div class="col-md-10">
             <h5 style="text-align: left; color: #ffffff; font-family: 'ADLaM Display', sans-serif; font-size: 1.5rem;">
-                LUIS ALFONSO | SEÑORACITOS
+                {{ nombreEvento }}
             </h5>
             <div style="display: flex; align-items: center; color: white; font-family: 'ADLaM Display', sans-serif; font-size: 1.2rem;">
                 <i class="fa-solid fa-calendar-days fa-sm" style="color: #ff0000; margin-right: 10px;"></i>
-                25 de Agosto de 2024
+                {{ nombreEvento }}
                 <span style="margin: 0 15px;"></span>
                 <i class="fa-solid fa-clock fa-sm" style="color: #ff0000; margin-right: 10px;"></i>
                 15:00
                 <span style="margin: 0 15px;"></span>
                 <i class="fa-solid fa-map-location-dot fa-sm" style="color: #ff0000; margin-right: 10px;"></i>
-                Teatro Colegio San Felipe Neri - Medellín 
+                {{ direccion }} {{ ciudad }}
             </div>
         </div>
         <div class="col-md-90 text-center">
-            <img src="https://firebasestorage.googleapis.com/v0/b/unieventos-54199.appspot.com/o/evento2.png?alt=media&token=f8d1bb0a-21ab-4b25-be0a-9a0650a416fe" alt="Imagen Evento" class="event-image">
+            <img [src]="imagenEvento">
         </div>
     </div>
 
@@ -39,20 +39,20 @@
     <div class="container my-5" style="color: white; font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-top: 30px;">
         <div class="row mt-4 mb-3">
             <div class="col-md-12">
-                <span style="color: #ff0000; font-weight: bold; font-size: 1rem; display: block;">3 entradas PLATEA DELANTERA</span>
+                <span style="color: #ff0000; font-weight: bold; font-size: 1rem; display: block;">{{ entradas }} entradas PLATEA DELANTERA</span>
             </div>
         </div>
         <div class="row mt-2">
-            <div class="col-md-1 text-start" style="font-size: 1.2rem;">3</div>
+            <div class="col-md-1 text-start" style="font-size: 1.2rem;">{{ entradas }}</div>
             <div class="col-md-7 text-start" style="font-size: 1.2rem;">PLATEA - Bloque PLATEA CENTRO</div>
             <div class="col-md-2 text-end">
-                <span style="color: #ffffff; font-size: 1rem;">$510.000</span> <!-- Precio en blanco alineado -->
+                <span style="color: #ffffff; font-size: 1rem;">{{ total }}</span> <!-- Precio en blanco alineado -->
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-md-4 text-start"><strong style="color: #ff0000; font-size: 1.3rem;">Total</strong></div>
             <div class="col-md-2 text-end">
-                <span style="color: #ff0000; font-weight: bold; font-size: 1rem;">$510.000</span> <!-- Precio en rojo alineado -->
+                <span style="color: #ff0000; font-weight: bold; font-size: 1rem;">{{ total }}</span> <!-- Precio en rojo alineado -->
             </div>
         </div>
     </div>

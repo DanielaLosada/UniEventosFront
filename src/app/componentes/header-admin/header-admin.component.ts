@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { TokenService } from '../../servicios/token.service';
 
 @Component({
   selector: 'app-header-admin',
@@ -10,5 +10,11 @@ import { RouterModule } from '@angular/router';
   styleUrl: './header-admin.component.css'
 })
 export class HeaderAdminComponent {
+  constructor(private tokenService: TokenService) {
+
+  }
+  public logout() {
+    this.tokenService.logout();
+  }
 
 }

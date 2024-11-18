@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { TokenService } from '../../servicios/token.service';
 
 @Component({
   selector: 'app-header-usuario',
@@ -9,5 +10,14 @@ import { RouterModule } from '@angular/router';
   styleUrl: './header-usuario.component.css'
 })
 export class HeaderUsuarioComponent {
+
+  constructor(private tokenService: TokenService) {
+
+ }
+ public logout() {
+   this.tokenService.logout();
+ }
+
+ 
   
 }

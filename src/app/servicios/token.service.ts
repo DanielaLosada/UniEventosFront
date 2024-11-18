@@ -42,7 +42,7 @@ public login(token: string) {
  
 public logout() {
   window.sessionStorage.clear();
-  this.router.navigate(["/login"]).then(() => {
+  this.router.navigate(["/inicio"]).then(() => {
     window.location.reload();
   });
  }
