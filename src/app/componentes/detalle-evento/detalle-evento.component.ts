@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { PublicoService } from '../../servicios/publico.service';
 import { InfoEventoDTO } from '../../dto/info-evento-dto';
 import { Router } from '@angular/router';
+import { TokenService } from '../../servicios/token.service';
 
 @Component({
   selector: 'app-detalle-evento',
@@ -16,12 +17,17 @@ import { Router } from '@angular/router';
 export class DetalleEventoComponent implements OnInit {
   evento: InfoEventoDTO | undefined;
   errorMessage: string | null = null; // Para manejar errores
-
+  isLogged = false;
   constructor(
     private route: ActivatedRoute, 
     private publicoService: PublicoService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private tokenService: TokenService
+  ) {this.isLogged = this.tokenService.isLogged()};
+
+ 
+
+ 
 
   ngOnInit(): void {
     // Obtener el parámetro 'nombre' desde la ruta
@@ -37,6 +43,7 @@ export class DetalleEventoComponent implements OnInit {
   }
 
   irACompra(nombre: string | undefined) {
+    
     this.router.navigate(['/inicio-compra', nombre]);
   }
 
