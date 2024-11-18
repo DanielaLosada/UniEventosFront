@@ -35,6 +35,7 @@ export class CrearEventoComponent {
       direccion: ['', [Validators.required]],
       ciudad: ['', [Validators.required]],
       tipo: ['', [Validators.required]],
+      fecha: ['', [Validators.required]],
       imagenPortada: ['', [Validators.required]],
       imagenLocalidad: ['', [Validators.required]],
       localidades: this.formBuilder.array([]),
@@ -47,8 +48,9 @@ export class CrearEventoComponent {
 
   agregarLocalidad() {
     const localidadForm = this.formBuilder.group({
-      nombreLocalidad: ['', Validators.required],
-      precio: ['', [Validators.required, Validators.min(0)]]
+      nombre: ['', Validators.required],
+      precio: ['', [Validators.required, Validators.min(0)]],
+      aforo: ['', [Validators.required, Validators.min(0)]]
     });
     this.localidades.push(localidadForm);
   }
@@ -59,14 +61,14 @@ export class CrearEventoComponent {
 
   public subirImagen(tipo: string) {
     const formData = new FormData();
-    const imagen = tipo === 'portada' ? this.imagenPortada : this.imagenLocalidad;
+    const imagen = tipo === 'imagenPortada' ? this.imagenPortada : this.imagenLocalidad;
   
     if (imagen) {
       formData.append('imagen', imagen);
       this.administradorService.subirImagen(formData).subscribe({
         next: (data) => {
-          this.crearEventoForm.get(tipo === 'portada' ? 'imagenPortada' : 'imagenLocalidades')?.setValue(data.respuesta);
-          Swal.fire("Éxito!", "Se ha subido la imagen.", "success");
+          this.crearEventoForm.get(tipo)?.setValue(data.respuesta);
+          Swal.fire("Éxito!", `Se ha subido la imagen de ${tipo}.`, "success");
         },
         error: (error) => {
           Swal.fire("Error!", error.error.respuesta, "error");
@@ -76,10 +78,14 @@ export class CrearEventoComponent {
       Swal.fire("Error!", "Por favor seleccione una imagen antes de subirla.", "error");
     }
   }
+  
 
    public crearEvento() {
     if (this.crearEventoForm.valid) {
       const crearEventoDTO = this.crearEventoForm.value as CrearEventoDTO;
+      if (crearEventoDTO.fecha) {
+        crearEventoDTO.fecha = `${crearEventoDTO.fecha}T00:00:00`;
+      }
       this.administradorService.crearEvento(crearEventoDTO).subscribe({
         next: (data) => {
           Swal.fire("Exito!", "Se ha creado un nuevo evento.", "success");
@@ -112,7 +118,7 @@ export class CrearEventoComponent {
   public onFileChange(event: any, tipo: string) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      tipo == 'imagenLocalidades' ? (this.imagenLocalidad = file) : (this.imagenPortada = file);
+      tipo == 'imagenLocalidad' ? (this.imagenLocalidad = file) : (this.imagenPortada = file);
     }
    }
    

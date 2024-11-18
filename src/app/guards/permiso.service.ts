@@ -19,8 +19,6 @@ export class PermisoService {
    }
    return true;
  }
-
-
 }
 
 export const LoginGuard: CanActivateFn = (next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean => {

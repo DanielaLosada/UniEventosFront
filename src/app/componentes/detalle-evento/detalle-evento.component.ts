@@ -1,39 +1,63 @@
-import { Component } from '@angular/core';
-import { EventoDTO } from '../../dto/evento-dto';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventosService } from '../../servicios/eventos.service';
-import { CommonModule } from '@angular/common';
-
+import { CommonModule, formatDate } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { PublicoService } from '../../servicios/publico.service';
+import { InfoEventoDTO } from '../../dto/info-evento-dto';
+import { Router } from '@angular/router';
 
 @Component({
- selector: 'app-detalle-evento',
- standalone: true,
- imports: [CommonModule, RouterModule],
- templateUrl: './detalle-evento.component.html',
- styleUrl: './detalle-evento.component.css'
+  selector: 'app-detalle-evento',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  templateUrl: './detalle-evento.component.html',
+  styleUrls: ['./detalle-evento.component.css'],
 })
-export class DetalleEventoComponent {
+export class DetalleEventoComponent implements OnInit {
+  evento: InfoEventoDTO | undefined;
+  errorMessage: string | null = null; // Para manejar errores
 
+  constructor(
+    private route: ActivatedRoute, 
+    private publicoService: PublicoService,
+    private router: Router
+  ) {}
 
- codigoEvento: string = '';
- evento: EventoDTO | undefined;
+  ngOnInit(): void {
+    // Obtener el parámetro 'nombre' desde la ruta
+    this.route.paramMap.subscribe((params) => {
+      const nombre = params.get('nombre'); // Obtén el parámetro 'nombre'
+      if (nombre) {
+        console.log('Nombre del evento capturado:', nombre);
+        this.obtenerEvento(nombre); // Llama al método para cargar el evento
+      } else {
+        this.errorMessage = 'No se proporcionó un nombre válido para el evento.';
+      }
+    });
+  }
 
+  irACompra(nombre: string | undefined) {
+    this.router.navigate(['/inicio-compra', nombre]);
+  }
 
- constructor(private route: ActivatedRoute, private eventosService: EventosService) {
-   this.route.params.subscribe((params) => {
-     this.codigoEvento = params['id'];
-     this.obtenerEvento();
-   });
- }
-
-
- public obtenerEvento() {
-   const eventoConsultado = this.eventosService.obtener(this.codigoEvento);
-   if (eventoConsultado != undefined) {
-     this.evento = eventoConsultado;
-   }
- }
-
-
+  obtenerEvento(nombre: string): void {
+    this.publicoService.obtenerEvento(nombre).subscribe({
+      next: (data) => { 
+        if (data && data.respuesta) {
+          const evento = data.respuesta;
+          this.evento = {
+            ...evento,
+            fecha: formatDate(new Date(evento.fecha), 'dd/MM/yyyy', 'en-US'),
+          };
+        } else {
+          this.errorMessage = 'No se encontraron datos para este evento.';
+        }
+      },
+      error: (error) => {
+        console.error('Error al obtener el evento:', error);
+        this.errorMessage = 'Ocurrió un error al cargar el evento. Inténtalo de nuevo.';
+      },
+    });
+  }
+  
 }

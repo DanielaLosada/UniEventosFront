@@ -34,7 +34,10 @@
                         <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Ciudad: </label>
                         <input type="text" class="form-control" formControlName="ciudad" />
                     </div>
-
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Fecha del evento:</label>
+                        <input type="date" class="form-control" formControlName="fecha" />
+                    </div>
                 </div>
                 <div class="row">
     <div class="col-12 mb-3">
@@ -42,6 +45,7 @@
         <div>
             <button type="button" class="btn btn-custom-red custom-red:hover" (click)="agregarLocalidad()">Añadir Localidad</button>
         </div>
+        <div formArrayName="localidades">
         <div 
             *ngFor="let localidad of localidades.controls; let i = index" 
             [formGroupName]="i" 
@@ -50,11 +54,15 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Nombre de la Localidad:</label>
-                    <input type="text" class="form-control" formControlName="nombreLocalidad" />
+                    <input type="text" class="form-control" formControlName="nombre" />
                 </div>
                 <div class="col-md-6 mb-3">
                     <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Precio:</label>
                     <input type="number" class="form-control" formControlName="precio" />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label" style="font-size: 1.2rem; color: #ff0000; font-family: 'Monserrat', system-ui;">Aforo:</label>
+                    <input type="number" class="form-control" formControlName="aforo" />
                 </div>
                 <div class="col-12 text-end">
                     <button type="button" class="btn btn-custom-red custom-red:hover btn-sm" (click)="eliminarLocalidad(i)">Eliminar</button>
@@ -63,7 +71,8 @@
         </div>
     </div>
 </div>
->
+</div>
+
                 <!-- Imágenes -->
                 <div class="row">
                     <div class="col-md-6 mb-3">

@@ -3,29 +3,29 @@
   
   <!-- Título principal -->
   <h3 style="text-align: left; color: white; font-family: 'ADLaM Display', sans-serif; font-size: 1.5rem; padding-bottom: 5px; margin-top: -80px;">
-      LUIS ALFONSO | SEÑORACITOS - MEDELLÍN
+    {{evento?.nombre}}
   </h3>
   <hr style="border-top: 1px solid white; width: 100%; margin: 0 auto 20px auto;">
   
   <!-- Información general y descripción -->
   <div class="row justify-content-center">
       <div class="col-md-5">
-          <img src="https://firebasestorage.googleapis.com/v0/b/unieventos-54199.appspot.com/o/evento11.webp?alt=media&token=171e9dc8-93cf-4dfb-b097-48787d07ad59" 
+          <img [src]="evento?.imagenPortada"
                class="img-fluid" 
                alt="Imagen del evento" 
                style="width: 100%; height: auto; border-radius: 5px; margin-right: 20px;">
       </div>
       <div class="col-md-7">
           <h4 style="font-family: Arial, sans-serif; color: white; font-style: italic; margin-top: 10px;">Información general</h4>
-          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Ciudad: <span style="color: white;">Medellín</span></p>
-          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Dirección: <span style="color: white;">Medellín</span></p>
-          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Fecha: <span style="color: white;">2024-08-20</span></p>
-          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Hora: <span style="color: white;">8:00PM</span></p>
-          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Categoría: <span style="color: white;">Conciertos</span></p>
+          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Ciudad: <span style="color: white;">{{evento?.ciudad}}</span></p>
+          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Dirección: <span style="color: white;">{{evento?.direccion}}</span></p>
+          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Fecha: <span style="color: white;">{{evento?.fecha}}</span></p>
+          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Hora: <span style="color: white;">{{evento?.fecha}}</span></p>
+          <p style="color: #ff0000; font-weight: bold; font-size: 1.1rem;">Categoría: <span style="color: white;">{{evento?.tipoEvento}}</span></p>
           
           <!-- Descripción alineada -->
           <p style="text-align: justify; color: white; font-family: Montserrat, sans-serif; font-size: 1.1rem; line-height: 1.6; margin-top: 20px;">
-            ¡No te pierdas <strong>SEÑORACITOS EN FAMILIA</strong> en el <strong>Teatro Universidad de Medellín</strong>! Este emocionante evento promete ser mucho más que un simple concierto; es una verdadera celebración para todas las edades. Luis Alfonso, el destacado cantante de música popular, estará en el escenario para brindar una tarde inolvidable llena de música y diversión para toda la familia.
+            {{evento?.descripcion}}
           </p>
       </div>
   </div>
@@ -46,28 +46,27 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td style="color: lime; border-color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">PLATEA DELANTERA</td>
-            <td style="border-color: white; color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">170.000</td>
-            <td style="border-color: white; color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">384</td>
-          </tr>
-          <tr>
-            <td style="color: purple; border-color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">BALCÓN</td>
-            <td style="border-color: white; color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">130.000</td>
-            <td style="border-color: white; color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">358</td>
-          </tr>
-          <tr>
-            <td style="color: magenta; border-color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">GENERAL</td>
-            <td style="border-color: white; color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">101.300</td>
-            <td style="border-color: white; color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">960</td>
+          <!-- Aquí se itera sobre la lista de localidades -->
+          <tr *ngFor="let localidad of evento?.listaLocalidades">
+            <td style="color: lime; border-color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">
+              {{ localidad.nombre }}
+            </td>
+            <td style="border-color: white; color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">
+              {{ localidad.precio | currency:'COP' }}
+            </td>
+            <td style="border-color: white; color: white; background-color: transparent; border-width: 2px; padding: 20px; line-height: 1.8;">
+              {{ localidad.aforo }}
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
+
+  
   
     <!-- Image beside the table -->
     <div class="col-md-5">
-      <img src="https://firebasestorage.googleapis.com/v0/b/unieventos-54199.appspot.com/o/TEATRO_MAYO_SAN_FRANCISCO_con_gral.jpg?alt=media&token=5bf0ae75-84d7-4970-afba-21d44779c94b" 
+      <img [src]="evento?.imagenLocalidades"
            class="img-fluid" 
            alt="Imagen del evento" 
            style="width: 80%; height: auto; border-radius: 5px; margin-left: auto; display: block;">
@@ -78,7 +77,7 @@
   <!-- Botón de compra -->
 
   <div class="text-center mt-4" style="max-width: 400px; margin: auto;">
-    <button type="submit" class="btn btn" routerLink="/inicio-compra" style="font-size: 1.2rem; color:#ffffff; padding: 0.2rem; width: 40%;">
+    <button type="button" class="btn btn" (click)="irACompra(evento?.nombre)" style="font-size: 1.2rem; color:#ffffff; padding: 0.2rem; width: 40%;">
       Realizar compra
     </button>
   </div>
@@ -95,8 +94,5 @@
          alt="Imagen de recomendaciones" 
          style="width: 50%; height: auto; border-radius: 5px; margin-top: 10px;">
   </div>
-
-
-
 </div>
 

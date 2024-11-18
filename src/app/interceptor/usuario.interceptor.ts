@@ -8,7 +8,7 @@ export const usuarioInterceptor: HttpInterceptorFn = (req, next) => {
 
  const tokenService = inject(TokenService);
  const isApiAuth = req.url.includes("api/auth");
- const isAPiPublico = req.url.includes("api/publico");
+ const isAPiPublico = req.url.includes("api/public");
 
 
  if (!tokenService.isLogged() || isApiAuth || isAPiPublico) {

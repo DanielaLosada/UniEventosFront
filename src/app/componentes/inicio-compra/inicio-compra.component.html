@@ -2,111 +2,82 @@
     <!-- Título principal -->
     <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <h3 style="text-align: left; color: white; font-family: 'ADLaM Display', sans-serif; font-size: 1.5rem; padding-bottom: 5px; margin-top: -80px; margin-bottom: 35px;">
-      LUIS ALFONSO | SEÑORACITOS - MEDELLÍN
+        {{evento?.nombre}}
     </h3>
     
     <!-- Fecha y Calendario -->
     <div style="display: flex; align-items: center; color: white; font-family: 'ADLaM Display', sans-serif; font-size: 1.2rem;">
         <i class="fa-solid fa-calendar-days fa-sm" style="color: #ff0000; margin-right: 10px;"></i>
-        25 de Agosto de 2024
+        {{evento?.fecha}}
         <span style="margin: 0 15px;"></span>
         <i class="fa-solid fa-clock fa-sm" style="color: #ff0000; margin-right: 10px;"></i>
-        15:00
+        20:00
         <span style="margin: 0 15px;"></span>
         <i class="fa-solid fa-map-location-dot fa-sm" style="color: #ff0000; margin-right: 10px;"></i>
-        Teatro Colegio San Felipe Neri - Medellín 
+        {{evento?.direccion}} {{evento?.ciudad}}
     </div>
       
-    <!-- Reservation Section -->
-    <div class="container my-5">
-        <div class="card" style="margin-top: -30px;">
-            <h5 class="highlight" style="font-family: 'ADLaM Display'; margin-top: -20px;">Reserva el mejor sitio</h5>
-            <div class="row">
-                <div class="col-md-8">
-                    <table class="table text-white table-borderless table-sm" style="background-color: transparent;">
-                        <thead>
-                            <tr>
-                                <th style="color: white; background-color: transparent;">Categoría del asiento</th>
-                                <th style="color: white; background-color: transparent;">Preferencia</th>
-                                <th style="color: white; background-color: transparent;">Cantidad</th>
-                                <th style="color: white; background-color: transparent;">Precio unitario</th>
-                                <th style="color: white; background-color: transparent;">Subtotal</th>
-                            </tr>
-                        </thead>
-                        <tbody style="background-color: transparent;">
-                            <tr>
-                                <td class="text-lime" style="background-color: transparent; font-family: Montserrat, sans-serif;">Platea Delantera</td>
-                                <td style="background-color: transparent;">
-                                    <select class="form-select form-select-sm" style="border-color: white; background-color: #ffffff; color: #000000;">
-                                        <option>Platea Central</option >
-                                        <option>Platea Izquierda</option>
-                                        <option>Platea Derecha</option>
-                                    </select>
-                                </td>
-                                <td style="background-color: transparent;">
-                                    <select class="form-select form-select-sm" style="border-color: white; background-color: #ffffff; color: #000000;">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </td>
-                                <td style="background-color: transparent; color: white; text-align: center; font-family: 'Montserrat', sans-serif;">$170,000</td>
-                                <td style="background-color: transparent; color: white; text-align: center; font-family: 'Montserrat', sans-serif;">$510,000</td>
-                            </tr>
-                            <tr>
-                                <td class="text-magenta" style="background-color: transparent; font-family: Montserrat, sans-serif;">Balcón</td>
-                                <td style="background-color: transparent;">
-                                    <select class="form-select form-select-sm" style="border-color: white; background-color: #ffffff; color: #000000;">
-                                        <option>Automático</option>
-                                    </select>
-                                </td>
-                                <td style="background-color: transparent;">
-                                    <select class="form-select form-select-sm" style="border-color: white; background-color: #ffffff; color: #000000;">
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                    </select>
-                                </td>
-                                <td style="background-color: transparent; color: white; text-align: center; font-family: 'Montserrat', sans-serif;">$130,000</td>
-                                <td style="background-color: transparent; color: white; text-align: center; font-family: 'Montserrat', sans-serif;">$0</td>
-                            </tr>
-                            <tr>
-                                <td class="text-yellow" style="background-color: transparent; font-family: Montserrat, sans-serif;">General</td>
-                                <td style="background-color: transparent;">
-                                    <select class="form-select form-select-sm" style="border-color: white; background-color: #ffffff; color: #000000;">
-                                        <option>Automático</option>
-                                    </select>
-                                </td>
-                                <td style="background-color: transparent;">
-                                    <select class="form-select form-select-sm" style="border-color: white; background-color: #ffffff; color: #000000;">
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                    </select>
-                                </td>
-                                <td style="background-color: transparent; color: white; text-align: center; font-family: 'Montserrat', sans-serif;">$101,300</td>
-                                <td style="background-color: transparent; color: white; text-align: center; font-family: 'Montserrat', sans-serif;">$0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-md-4 d-flex justify-content-center align-items-center">
-                    <div class="promo-code-card" style="background-color: #333; padding: 20px; border-radius: 8px; width: 100%; max-width: 250px;">
-                        <h5 style="text-align: center; font-weight: bold; font-family: 'Montserrat', sans-serif; color: white; margin-bottom: 15px;">CÓDIGO PROMOCIONAL</h5>
-                        <p style="font-family: 'Montserrat', sans-serif; color: #ddd; font-size: 0.9rem; text-align: center; margin-bottom: 15px;">
-                            Si tienes un código promocional, introdúcelo y valídalo.
-                        </p>
-                        <input type="text" class="form-control border" style="width: 100%; padding: 8px; border: 2px solid #ff0000; border-radius: 4px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #ff0000; background-color: #222; margin-bottom: 10px;">
-                        <button style="width: 100%; padding: 8px; font-family: 'Montserrat', sans-serif; font-weight: bold; background-color: #ff0000; color: white; border: none; border-radius: 4px;">
-                            OK
-                        </button>
-                    </div>
-                </div>
-            </div>
+    <!-- info-evento.component.html -->
+<div class="container my-5">
+    <div class="card" style="margin-top: -30px;">
+      <h5 class="highlight" style="font-family: 'ADLaM Display'; margin-top: -20px;">Reserva el mejor sitio</h5>
+      <div class="row">
+        <div class="col-md-8">
+          <table class="table text-white table-borderless table-sm" style="background-color: transparent;">
+            <thead>
+              <tr>
+                <th style="color: white; background-color: transparent;">Categoría del asiento</th>
+                <th style="color: white; background-color: transparent;">Preferencia</th>
+                <th style="color: white; background-color: transparent;">Cantidad</th>
+                <th style="color: white; background-color: transparent;">Precio unitario</th>
+                <th style="color: white; background-color: transparent;">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody style="background-color: transparent;">
+              <!-- Iteración con ngFor -->
+              <tr *ngFor="let localidad of evento?.listaLocalidades">
+                <td style="background-color: transparent; font-family: Montserrat, sans-serif;">{{ localidad.nombre }}</td>
+                <td style="background-color: transparent;">
+                  <select class="form-select form-select-sm" style="border-color: white; background-color: #ffffff; color: #000000;">
+                    <option>Automático</option>
+                  </select>
+                </td>
+                <td style="background-color: transparent;">
+                  <select 
+                    class="form-select form-select-sm" 
+                    style="border-color: white; background-color: #ffffff; color: #000000;"
+                    >
+                    <!-- Generar opciones dinámicamente según disponibilidad -->
+                    <option *ngFor="let n of [].constructor(localidad.aforo - localidad.entradasVendidas); let i = index" 
+                            [value]="i + 1">{{ i + 1 }}</option>
+                  </select>
+                </td>
+                <td style="background-color: transparent; color: white; text-align: center; font-family: 'Montserrat', sans-serif;">
+                  ${{ localidad.precio | number:'1.0-0' }}
+                </td>
+                <td style="background-color: transparent; color: white; text-align: center; font-family: 'Montserrat', sans-serif;">
+                  ${{ calcularSubtotal(localidad.precio, localidad.cantidadSeleccionada || 0) | number:'1.0-0' }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+          <div class="promo-code-card" style="background-color: #333; padding: 20px; border-radius: 8px; width: 100%; max-width: 250px;">
+            <h5 style="text-align: center; font-weight: bold; font-family: 'Montserrat', sans-serif; color: white; margin-bottom: 15px;">CÓDIGO PROMOCIONAL</h5>
+            <p style="font-family: 'Montserrat', sans-serif; color: #ddd; font-size: 0.9rem; text-align: center; margin-bottom: 15px;">
+              Si tienes un código promocional, introdúcelo y valídalo.
+            </p>
+            <input type="text" class="form-control border" style="width: 100%; padding: 8px; border: 2px solid #ff0000; border-radius: 4px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #ff0000; background-color: #222; margin-bottom: 10px;">
+            <button style="width: 100%; padding: 8px; font-family: 'Montserrat', sans-serif; font-weight: bold; background-color: #ff0000; color: white; border: none; border-radius: 4px;">
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+ 
+  
+  
 
             <!-- Summary Section -->
             <div class="container my8" style="color: white; font-family: 'Montserrat', sans-serif;">
